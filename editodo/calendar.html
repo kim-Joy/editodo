@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="../css/font.css">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/theme.css">
+  <link rel="stylesheet" href="../css/login.css">
+  <link rel="stylesheet" href="../css/policy.css">
+  <link rel="stylesheet" href="../css/darkmode.css">
+
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div id="wrap" class="editodo_wrap">
+
+    <div class="container editodo_calendar">
+      <div class="editodo_inner side_pd">
+        <div id="datapicker" class="editodo_datapicker"></div>
+        <div id="daily_diary" class="daily_diary">
+          <ul id="toDo-list"></ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="editodo_fnb">
+      <ul class="fnb_list">
+        <li>
+          <button type="button" class="btn_fnb">투두리스트</button>
+        </li>
+        <li>
+          <button type="button" class="btn_fnb">캘린더</button>
+        </li>
+        <li>
+          <button type="button" class="btn_fnb">하루일기</button>
+        </li>
+        <li>
+          <button type="button" class="btn_fnb">마이페이지</button>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</body>
+</html>
+
+<script>
+  $(function () {
+    const calendar = document.querySelector('.editodo_calendar');
+    const state = calendar.querySelectorAll('.tbody tr');
+    const icon = document.createElement('span');
+
+
+   const natDays = [
+      [2023, 1, 1, "ko", "신정"],
+      [2023, 1, 21, "ko", ""],
+      [2023, 1, 22, "ko", "설"],
+      [2023, 1, 23, "ko", ""],
+      [2023, 1, 24, "ko", "대체공휴일"],
+      [2023, 3, 1, "ko", "삼일절"],
+      [2023, 5, 5, "ko", "어린이날"],
+      [2023, 5, 27, "ko", "석가탄신일"],
+      [2023, 6, 6, "ko", "현충일"],
+      [2023, 8, 15, "ko", "광복절"],
+      [2023, 9, 28, "ko", ""],
+      [2023, 9, 29, "ko", "추석"],
+      [2023, 9, 30, "ko", ""],
+      [2023, 10, 3, "ko", "개천절"],
+      [2023, 10, 9, "ko", "한글날"],
+      [2023, 12, 25, "ko", "성탄절"]
+    ];
+
+    $("#datapicker").datepicker({
+      showMonthAfterYear: true, //월, 년순의 셀렉트 박스를 년,월 순으로 바꿔준다. 
+      //showOtherMonths: true, //해당 달의 시작 또는 끝에 다른 달의 날짜를 표시할 것인지
+      dateFormat: "yy-mm-dd", // 텍스트 필드에 입력되는 날짜 형식.
+      yearSuffix: ".",
+      monthNames: ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"],
+      dayNamesMin: ['월', '화', '수', '목', '금', '토', '일'], // 요일의 한글 형식.
+      //beforeShowDay: nationalDays, 
+
+      
+      onSelect: function(e){
+        $('.daily_diary').addClass('active');
+        let arr = e.split("-");
+        let year = arr[0];
+        let month = arr[1];
+        let day = arr[2];
+        let format = new Date(
+          $("#datapicker").datepicker({
+            format: "yy-mm-dd"
+          }).val()
+        );
+
+        //console.log(year + '/' + month + '/' + day);
+
+      }
+
+    });
+
+    
+     //holiday
+     function nationalDays(date) {
+      for (i = 0; i < natDays.length; i++) {
+        if (
+          date.getFullYear() == natDays[i][0] &&
+          date.getMonth() == natDays[i][1] - 1 &&
+          date.getDate() == natDays[i][2]
+        ) {
+          return [true, natDays[i][3] + "_holiday", natDays[i][4]];
+        }
+      }
+      return [true, ""];
+    }
+
+  });
+
+
+
+  const add = document.querySelector(".add_btn");
+  const toDoList = document.querySelector("#toDo-list");
+  const toDoform = document.getElementById("toDo-form");
+  const toDoInput = toDoform.querySelector("input");
+  const TODOS_KEY = "toDos";
+  let toDos = [];
+
+  const savedToDos = localStorage.getItem(TODOS_KEY);
+
+  if (savedToDos !== null) {
+    const parsedToDos = JSON.parse(savedToDos);
+    toDos = parsedToDos;
+    parsedToDos.forEach(paintToDo);
+  }
+
+  //add.addEventListener("click", handleToDoSubmit);
+  toDoform.addEventListener("submit",handleToDoSubmit);
+
+  function handleToDoSubmit(event) {
+    event.preventDefault();
+    const newToDo = toDoInput.value;
+    toDoInput.value = "";
+    const newToDoObj = {
+      text: newToDo,
+      id: Date.now()
+    }
+    toDos.push(newToDoObj);
+    paintToDo(newToDoObj);
+    saveToDos();
+    //addEventLisenter('focusout', saveToDos);
+  }
+
+  function paintToDo(newToDoObj) {
+    const li = document.createElement("li");
+    li.id = newToDoObj.id;
+
+    const span = document.createElement("span");
+    span.innerText = newToDoObj.text;
+    span.addEventListener("click", checkingToDo);
+
+    const button = document.createElement("button");
+    button.innerText = "❌";
+    button.addEventListener("click", moreTodo);
+
+    li.appendChild(span);
+    li.appendChild(button);
+    toDoList.appendChild(li); // greetings.js -- line 11
+  }
+
+  function saveToDos() {
+    localStorage.setItem(TODOS_KEY, JSON.stringify(toDos));
+  }
+
+  function checkingToDo(event) {
+    // const span = event.path[0]; //아래와 같음
+    const span = event.target;
+    span.classList.toggle("strikethrough");
+  }
+
+  function deleteToDo(event) {
+    const li = event.target.parentElement;
+    li.remove();
+    toDos = toDos.filter((toDoObj) => toDoObj.id !== parseInt(li.id));
+    //DOM에서는 삭제되었지만 변수로서의 li에서는 li.id 접근 가능
+    //Element의 id는 문자열이기 때문에 숫자로 변환 필요
+    saveToDos();
+  }
+
+  function moreTodo(event) {
+    console.log('dd');
+    $('.drop_layer').addClass('on');
+  }
+</script>
