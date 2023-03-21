@@ -66,6 +66,7 @@
 .cal-table td.day {
   position: relative;
   cursor: pointer;
+  text-align: center; 
 }
 .cal-table td.today {
   background: #ffd255;
@@ -87,6 +88,8 @@
   height: 4px;
   background: #FFC107;
 }
+
+.todo_face {position: absolute; bottom: 0; left: 50%;  margin: 0 auto; box-sizing: border-box; border-radius: 100%; border: 1px dashed #eee; width: 15px; height: 15px; background-color: #5c2222; transform: translateX(-50%); }
 </style>
 <!--
 <div class="datapicker">
@@ -229,7 +232,7 @@ function loadYYMM (fullDate) {
         trtd += '<td class="day';
         trtd += (markToday && markToday === countDay + 1) ? ' today" ' : '"';
         trtd += ` data-date="${countDay + 1}" data-fdate="${fullDate}">`;
-        trtd += '<span></span>'
+        trtd += '<span class="todo_face"></span>'
       }
       trtd += (startCount) ? ++countDay : '';
       if (countDay === lastDay.getDate()) { 
@@ -280,7 +283,7 @@ $calBody.addEventListener('click', (e) => {
     let day = Number(e.target.textContent);
     loadDate(day, e.target.cellIndex);
     e.target.classList.add('day-active');
-    // 하단 리스트 영역 노출
+    // 하단 리스트 영역 노출여기에 
     init.activeDTag = e.target;
     init.activeDate.setDate(day);
     reloadTodo();

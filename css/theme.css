@@ -66,3 +66,17 @@
 =============================================== */
 .section_choose .layout_option.color .btn_option:after {content: ''; clear: both; display: block; height: 0; visibility: hidden; }
 .section_choose .layout_option.color .btn_option > span {float: left; width: 50%; height: 100%; text-indent: -9999px; }
+
+
+
+
+
+
+
+/* ============================================
+    투두리스트 
+============================================ */
+.todolist_header {display: flex; flex-wrap: wrap; justify-content: space-between; height: 50px; line-height: 50px; }
+.todolist_header .datapicker_year {font-size: 15px; color: #222; font-weight: 600; }
+
+.todolist_table {height: 403px; margin-top: 10px;padding: 20px 20px; box-sizing: border-box; box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1); background-color: #f5f5f5; overflow-x: hidden; overflow-y: auto; }
