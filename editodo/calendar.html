@@ -25,25 +25,33 @@
     <div class="container editodo_calendar">
       <div class="editodo_inner side_pd">
         <div id="datapicker" class="editodo_datapicker"></div>
+        <!-- S: 등록된 리스트 -->
         <div id="daily_diary" class="daily_diary">
-          <ul id="toDo-list"></ul>
+          <div class="todo_box">
+            <ul id="todo-list"></ul>
+          </div>
+          
+          <div class="bottom_btn_group">
+            <button type="buttton" class="btn btn_dark full">하루기록</button>
+          </div>
         </div>
+        <!-- E: 등록된 리스트 -->
       </div>
     </div>
 
     <div class="editodo_fnb">
       <ul class="fnb_list">
         <li>
-          <button type="button" class="btn_fnb">투두리스트</button>
+          <button type="button" onclick="location.href='/editodo/todolist.html'" class="btn_fnb">투두리스트</button>
         </li>
         <li>
-          <button type="button" class="btn_fnb">캘린더</button>
+          <button type="button" onclick="location.href='/editodo/calendar.html'" class="btn_fnb">캘린더</button>
         </li>
         <li>
-          <button type="button" class="btn_fnb">하루일기</button>
+          <button type="button" onclick="location.href='/editodo/daily.html'" class="btn_fnb">하루일기</button>
         </li>
         <li>
-          <button type="button" class="btn_fnb">마이페이지</button>
+          <button type="button" onclick="location.href='/mypage/mypage.html'" class="btn_fnb">마이페이지</button>
         </li>
       </ul>
     </div>
@@ -125,73 +133,7 @@
 
 
 
-  const add = document.querySelector(".add_btn");
-  const toDoList = document.querySelector("#toDo-list");
-  const toDoform = document.getElementById("toDo-form");
-  const toDoInput = toDoform.querySelector("input");
-  const TODOS_KEY = "toDos";
-  let toDos = [];
 
-  const savedToDos = localStorage.getItem(TODOS_KEY);
-
-  if (savedToDos !== null) {
-    const parsedToDos = JSON.parse(savedToDos);
-    toDos = parsedToDos;
-    parsedToDos.forEach(paintToDo);
-  }
-
-  //add.addEventListener("click", handleToDoSubmit);
-  toDoform.addEventListener("submit",handleToDoSubmit);
-
-  function handleToDoSubmit(event) {
-    event.preventDefault();
-    const newToDo = toDoInput.value;
-    toDoInput.value = "";
-    const newToDoObj = {
-      text: newToDo,
-      id: Date.now()
-    }
-    toDos.push(newToDoObj);
-    paintToDo(newToDoObj);
-    saveToDos();
-    //addEventLisenter('focusout', saveToDos);
-  }
-
-  function paintToDo(newToDoObj) {
-    const li = document.createElement("li");
-    li.id = newToDoObj.id;
-
-    const span = document.createElement("span");
-    span.innerText = newToDoObj.text;
-    span.addEventListener("click", checkingToDo);
-
-    const button = document.createElement("button");
-    button.innerText = "❌";
-    button.addEventListener("click", moreTodo);
-
-    li.appendChild(span);
-    li.appendChild(button);
-    toDoList.appendChild(li); // greetings.js -- line 11
-  }
-
-  function saveToDos() {
-    localStorage.setItem(TODOS_KEY, JSON.stringify(toDos));
-  }
-
-  function checkingToDo(event) {
-    // const span = event.path[0]; //아래와 같음
-    const span = event.target;
-    span.classList.toggle("strikethrough");
-  }
-
-  function deleteToDo(event) {
-    const li = event.target.parentElement;
-    li.remove();
-    toDos = toDos.filter((toDoObj) => toDoObj.id !== parseInt(li.id));
-    //DOM에서는 삭제되었지만 변수로서의 li에서는 li.id 접근 가능
-    //Element의 id는 문자열이기 때문에 숫자로 변환 필요
-    saveToDos();
-  }
 
   function moreTodo(event) {
     console.log('dd');

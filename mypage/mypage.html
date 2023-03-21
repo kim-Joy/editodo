@@ -11,51 +11,56 @@
   <link rel="stylesheet" href="../css/theme.css">
   <link rel="stylesheet" href="../css/login.css">
   <link rel="stylesheet" href="../css/policy.css">
-  <link rel="stylesheet" href="../css/darkmode.css">
+  <link rel="stylesheet" href="../css/darkmode.css"> 
   <title>Document</title>
 </head>
 <body>
   <div id="wrap" class="editodo_wrap">
     <div class="container editodo_mypage">
-      <div class="mypage_info">
-        <button class="btn_info" onclick="location.href='/login/login.html'">로그인/회원가입<i class="mypage_arrow"></i></button>
-        <!-- 로그인일 경우 
-          <button class="btn_info" onclick="location.href='/mypage/mypage.html'">미녜<i class="mypage_arrow"></i></button> -->
+      <div class="editodo_inner">
+        <div class="mypage_info">
+          <!-- 비회원 인 경우 -->
+            <button class="btn_info" style="display: none;" onclick="location.href='/login/login.html'">로그인/회원가입<i class="mypage_arrow"></i></button> 
+
+          <!-- 로그인일 경우   -->
+            <button class="btn_info" onclick="location.href='/mypage/user_modify.html'">미녜<i class="mypage_arrow"></i></button>
+        </div>
+        <nav>
+          <ul class="category">
+            <li><button type="button" class="btn_category arrow">테마 및 색상변경</button></li>
+            <li><button type="button" class="btn_category arrow">글꼴변경</button></li>
+          </ul>
+          <ul class="category">
+            <li><button type="button" class="btn_category arrow">공지사항</button></li>
+            <li><button type="button" class="btn_category arrow">이용약관</button></li>
+            <li><button type="button" class="btn_category arrow">개인정보 정책</button></li>
+            <li><button type="button" class="btn_category arrow">문의하기</button></li>
+          </ul>
+          <ul class="category category_util">
+            <li>버전정보 <span class="category_state">1.0.0</span></li>
+            <li>언어 <span class="category_state">Kor</span></li>
+          </ul>
+          <!-- 로그인 된 경우에만 노출 -->
+          <ul class="category" style="display: block">
+            <li><button type="button" class="btn_category">로그아웃</button></li>
+          </ul> 
+        </nav>
       </div>
-      <nav>
-        <ul class="category">
-          <li><button type="button" class="btn_category arrow">테마 및 색상변경</button></li>
-          <li><button type="button" class="btn_category arrow">글꼴변경</button></li>
-        </ul>
-        <ul class="category">
-          <li><button type="button" class="btn_category arrow">공지사항</button></li>
-          <li><button type="button" class="btn_category arrow">이용약관</button></li>
-          <li><button type="button" class="btn_category arrow">개인정보 정책</button></li>
-          <li><button type="button" class="btn_category arrow">문의하기</button></li>
-        </ul>
-        <ul class="category">
-          <li>버전정보 <span>1.0.0</span></li>
-          <li>언어 <span>Kor</span></li>
-        </ul>
-        <ul class="category">
-          <li><button type="button" class="btn_category">로그아웃</button></li>
-        </ul>
-      </nav>
     </div>
 
     <div class="editodo_fnb">
       <ul class="fnb_list">
         <li>
-          <button type="button" class="btn_fnb">투두리스트</button>
+          <button type="button" onclick="location.href='/editodo/todolist.html'" class="btn_fnb">투두리스트</button>
         </li>
         <li>
-          <button type="button" class="btn_fnb">캘린더</button>
+          <button type="button" onclick="location.href='/editodo/calendar.html'" class="btn_fnb">캘린더</button>
         </li>
         <li>
-          <button type="button" class="btn_fnb">하루일기</button>
+          <button type="button" onclick="location.href='/editodo/daily.html'" class="btn_fnb">하루일기</button>
         </li>
         <li>
-          <button type="button" class="btn_fnb">마이페이지</button>
+          <button type="button" onclick="location.href='/mypage/mypage.html'" class="btn_fnb">마이페이지</button>
         </li>
       </ul>
     </div>

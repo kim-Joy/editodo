@@ -23,30 +23,30 @@
       <h3 class="hd_tit">회원정보 수정</h3>
     </header>
 
-    <div class="container editodo_mypage">
+    <div class="container editodo_mypage bg-white">
       <div class="editodo_inner side_pd">
         <div class="form_wrap">
           <form action="">
             <dl class="form_dl">
-              <dt><label for="user_Pw" class="form_label">아이디</label></dt>
-              <dd><input type="text" id="user_Pw" class="form_input readonly" value="mine5959" readonly></dd>
+              <dt><label for="userId" class="form_label">아이디</label></dt>
+              <dd><input type="text" id="userId" class="form_input readonly" value="mine5959" readonly></dd>
             </dl>
             <dl class="form_dl">
-              <dt><label for="user_Pw" class="form_label">휴대폰번호</label></dt>
-              <dd><input type="text" id="user_Pw" class="form_input" vlaue="010123456" readonly></dd>
+              <dt><label for="userEmail" class="form_label">이메일</label></dt>
+              <dd><input type="text" id="userEmail" class="form_input" value="mine@email.com" placeholder="email@emai.com"></dd>
             </dl>
-            <dl class="form_dl">
-              <dt><label for="user_Pw" class="form_label">이메일</label></dt>
-              <dd><input type="text" id="user_Pw" class="form_input"></dd>
-            </dl>
-            <div>
-              <p>인증번호</p>
-              <input type="text">
-              <button></button>
+            <div class="form_dl form_confirm" style="display: none;">
+              <div class="confirm_num">
+                <label for="input_confrim_Num" class="visuallyhidden">인증번호</label>
+                <input type="text" id="input_confrim_Num" class="form_input">
+                <button type="button" id="btn_confirm_chk" class="btn btn_main full">인증번호 확인</button>
+              </div>
+              <p class="field_not">인증번호가 일치하지 않습니다.</p>
             </div>
           </form>
           <div class="bottom_btn_group">
-            <button type="buttton" class="btn btn_main full">수정</button>
+            <button type="button" id="btn_email_confirm" class="btn btn_main full">이메일 인증</button>
+            <button type="button" id="submit" class="btn btn_main full" disabled style="display: none;">수정</button>
           </div>
         </div>
       </div>
@@ -55,16 +55,16 @@
     <div class="editodo_fnb">
       <ul class="fnb_list">
         <li>
-          <button type="button" class="btn_fnb">투두리스트</button>
+          <button type="button" onclick="location.href='/editodo/todolist.html'" class="btn_fnb">투두리스트</button>
         </li>
         <li>
-          <button type="button" class="btn_fnb">캘린더</button>
+          <button type="button" onclick="location.href='/editodo/calendar.html'" class="btn_fnb">캘린더</button>
         </li>
         <li>
-          <button type="button" class="btn_fnb">하루일기</button>
+          <button type="button" onclick="location.href='/editodo/daily.html'" class="btn_fnb">하루일기</button>
         </li>
         <li>
-          <button type="button" class="btn_fnb">마이페이지</button>
+          <button type="button" onclick="location.href='/mypage/mypage.html'" class="btn_fnb">마이페이지</button>
         </li>
       </ul>
     </div>
@@ -72,3 +72,36 @@
   </div>
 </body>
 </html>
+
+<script>
+const btnConfirm = document.querySelector("#btn_email_confirm");
+const formConfirm = document.querySelector(".form_confirm");
+const confirmChk = document.querySelector("#btn_confirm_chk");
+const ConfirmNum = document.querySelector("#input_confrim_Num");
+const submit = document.querySelector("#submit");
+
+btnConfirm.addEventListener("click", function(){
+  formConfirm.style.display = 'block'; 
+  btnConfirm.style.display = 'none';
+  document.querySelector('#userEmail').disabled = true;
+  submit.style.display = 'block'; 
+});
+
+confirmChk.addEventListener("click", function(){
+  if(ConfirmNum.value == ""){
+    ConfirmNum.classList.add('field_chk');
+    document.querySelector('.field_not').style.display = 'block';
+    return false;
+  }
+  ConfirmNum.disabled = true;
+  ConfirmNum.classList.remove('field_chk');
+  document.querySelector('.field_not').style.display = 'none';
+  submit.disabled = false;
+});
+
+submit.addEventListener("click", function(){
+  const change_email = document.querySelector('#userEmail').value
+  console.log(change_email);
+});
+
+</script>

@@ -17,7 +17,7 @@
 /* ============================================
     var color
 ============================================ */
-:root { --main-color: #5AC1CC; --dark-color : #222; --gray-lavel01: #eee; }
+:root { --main-color: #5AC1CC; --dark-color : #222; --gray-lavel-eee: #eee; }
 .font_main {color: var(--main-color); }
 .bg_main {background-color: var(--main-color); }
 
@@ -30,14 +30,11 @@
     input reset
 =========================================== */
 input::placeholder {color: #888 !important; opacity: 1;}
-input::-webkit-input-placeholder {color: #888;}
-input:-ms-input-placeholder {color: #888;}
+input::-webkit-input-placeholder, input:-ms-input-placeholder,
 input:-mos-input-placeholder {color: #888;}
 
-input:read-only {background-color: #eee !important; color: #aaa !important; outline: none;}
-input.readonly {background-color: #eee !important; color: #aaa !important; outline: none;}
-input:disabled {background-color: #eee !important; color: #aaa !important; outline: none;}
-input.disabled {background-color: #eee !important; color: #aaa !important; outline: none;}
+input:read-only, input.readonly,
+input:disabled, input.disabled {background-color: #eee !important; color: #aaa !important; outline: none;}
 
 input:placeholder-shown {text-overflow: ellipsis; }
 
@@ -52,6 +49,13 @@ input:placeholder-shown {text-overflow: ellipsis; }
 .form_wrap .form_dl .form_input.field_chk + .field_not {display: block;}
 
 .form_wrap .form_dl + .form_dl {margin-top: 16px; }
+
+/* 인증하기 //인풋 + 버튼 */
+.form_confirm {}
+.form_confirm .confirm_num:after {content: ''; clear: both; display: block; height: 0; visibility: hidden; } 
+.form_dl.form_confirm .form_input {float: left; width: calc(100% - 130px); }
+.form_dl.form_confirm .form_input + .btn {float: right; width: 120px; height: 40px; box-sizing: border-box; border: 1px solid var(--dark-color); border-radius: 5px; background-color: var(--dark-color); font-size: 14px; text-align: center; font-weight: 500; line-height: 38px; color: #fff;}
+.form_dl.form_confirm .field_not {text-align: right; }
 
 
 
@@ -80,10 +84,12 @@ input:placeholder-shown {text-overflow: ellipsis; }
 /* =========================================
     button
 =========================================== */
+button:disabled, button[disabled],
+button.disabled {opacity: 0.6; cursor: not-allowed; }
 
 /* 하단 버튼 영역 */
 .bottom_btn_group {margin-top: 20px; }
-.bottom_btn_group .btn {height: 50px; box-sizing: border-box; border: 1px solid var(--main-color); border-radius: 6px; font-size: 16px; text-align: center; font-weight: 500; line-height: 48px; }
+.bottom_btn_group .btn {display: block; height: 50px; box-sizing: border-box; border: 1px solid var(--main-color); border-radius: 6px; font-size: 16px; text-align: center; font-weight: 500; line-height: 48px; }
 .bottom_btn_group .btn + .btn {margin-top: 10px; }
 .bottom_btn_group .btn_main {background-color: var(--main-color); color: #fff;}
 .bottom_btn_group .btn_sub {background-color: #fff; color: var(--main-color); }
@@ -92,6 +98,6 @@ input:placeholder-shown {text-overflow: ellipsis; }
 .bottom_btn_group.horzion {display: flex; flex-wrap: wrap; gap: 0 15px; }
 .bottom_btn_group.horzion .btn {flex-basis: calc(50% - 15px); }
 .bottom_btn_group.horzion .btn + .btn {margin-top: 0; }
-.bottom_btn_group.horzion .btn_prev {border-color: var(--gray-lavel01); background-color: var(--gray-lavel01); color: #888; }
+.bottom_btn_group.horzion .btn_prev {border-color: var(--gray-lavel-eee); background-color: var(--gray-lavel-eee); color: #888; }
 
 .bottom_btn_group .btn.full {width: 100%; }
