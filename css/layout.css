@@ -39,20 +39,20 @@ html, body {position: relative; width: 100%; height: 100%; }
     calendar 
 ============================================ */
 /* header */
-.editodo_datapicker .ui-widget-header {height: 50px; margin-bottom: 10px; padding: 0; background-color: transparent; border: none; border-radius: 0; line-height: 50px; }
+.editodo_datapicker .ui-datepicker .ui-widget-header {height: 50px; margin-bottom: 10px; padding: 0; background-color: transparent; border: none; border-radius: 0;}
 .editodo_datapicker .ui-datepicker .ui-datepicker-prev {width: 30px; height: 30px; left: 0; top: 10px; }
 .editodo_datapicker .ui-datepicker .ui-datepicker-next {width: 30px; height: 30px; right: 0; top: 10px;}
-.editodo_datapicker .ui-datepicker-title {color: #222; font-size: 15px; font-weight: 600; line-height: inherit;}
+.editodo_datapicker .ui-datepicker .ui-datepicker-title {margin: 0 auto; padding: 0; color: #222; font-size: 15px; font-weight: 600; line-height: 50px;}
 
 /* content */
-.editodo_datapicker .ui-widget.ui-widget-content {width: 100%; height: 100%; margin: 0 auto; border: none; border-radius: 0;}
+.editodo_datapicker .ui-widget.ui-widget-content {width: 100%; height: 100%; margin: 0 auto; padding: 0; border: none; border-radius: 0;}
 .editodo_datapicker .ui-datepicker th {width: 50px; height: 50px; padding: 0; box-sizing: border-box; color: #aaa; font-size: 14px; }
 .editodo_datapicker .ui-datepicker td {padding: 0;}
 .editodo_datapicker .ui-state-default, 
 .editodo_datapicker .ui-widget-content .ui-state-default, 
 .editodo_datapicker .ui-widget-header .ui-state-default {width: 50px; height: 50px; margin: 0 auto; padding: 5px 0; box-sizing: border-box; border: none;  background-color: transparent; text-align: center; color: #222; font-weight: 600; }
 
-.editodo_datapicker .ui-state-default:after {content: 'x'; display: block; width: 20px; height: 20px; margin: 0 auto; box-sizing: border-box; border-radius: 100%; border: 1px dashed #eee; background-color: transparent; color: #eee; }
+.editodo_datapicker .ui-state-default:after {content: 'x'; display: block; width: 20px; height: 20px; margin: 2px auto 0; box-sizing: border-box; border-radius: 100%; border: 1px dashed #eee; background-color: transparent; color: #eee; }
 
 /* Active
 .editodo_datapicker .ui-state-active,
