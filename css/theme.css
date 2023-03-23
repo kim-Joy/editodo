@@ -80,3 +80,23 @@
 .todolist_header .datapicker_year {font-size: 15px; color: #222; font-weight: 600; }
 
 .todolist_table {height: 403px; margin-top: 10px;padding: 20px 20px; box-sizing: border-box; box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1); background-color: #f5f5f5; overflow-x: hidden; overflow-y: auto; }
+.todolist_table .todolist_tbody li {position: relative; }
+.todolist_table .todolist_tbody li + li {margin-top: 16px; }
+.todolist_table .todolist_tbody .item_more {position: absolute; top: 0; right: 0; width: 18px; height: 18px; background-color: #aaa; background-repeat: no-repeat; background-position: right center; background-size: 8px 8px; }
+
+
+/* checkbox 
+============================================= */
+.checkbox02 {position: relative; display: block; padding-left: 26px; cursor: pointer;  -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+.checkbox02 label {font-size: 13px; color: #666; font-weight: 500; }
+.checkbox02 input[type="checkbox"] {display: none; } 
+
+/* 선택되지 않은 체크박스 스타일 꾸미기 */
+.checkbox02 .on {position: absolute; top: 4px; left: 0; width: 18px; height: 18px; box-sizing: border-box; border: 1px solid #D9D9D9; background: #D9D9D9;  }
+.checkbox02 .on:after {content: ''; display: none; position: absolute; top: 4px; left: 3px; width: 8px; height: 4px; border: 1px solid #ccc; border-top: 0; border-right: 0; transform: rotate(-45deg);}
+
+
+/* 선택된 체크박스 스타일 꾸미기 */
+.checkbox02 input[type="checkbox"]:checked + .on {border-color: #222; background: #222; }
+.checkbox02 input[type="checkbox"]:checked + .on:after {display: block; border-color: #fff; }
+.checkbox02:has(:checked) label {text-decoration: line-through; color: #aaa;}

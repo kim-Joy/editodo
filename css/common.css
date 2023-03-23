@@ -59,7 +59,7 @@ input:placeholder-shown {text-overflow: ellipsis; }
 
 
 
-/* checkbox & radio 
+/* checkbox 
 ============================================= */
 .checkbox {position: relative; display: block; padding-left: 26px; cursor: pointer;  -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
 .checkbox label {font-size: 13px; color: #666; font-weight: 500; }
@@ -67,13 +67,12 @@ input:placeholder-shown {text-overflow: ellipsis; }
 
 /* 선택되지 않은 체크박스 스타일 꾸미기 */
 .checkbox .on {position: absolute; top: 4px; left: 0; width: 18px; height: 18px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 100%; background: #fff;  }
-.checkbox .on:after {position: absolute; top: 4px; left: 3px; width: 8px; height: 4px; border: 1px solid #ccc; border-top: 0; border-right: 0; transform: rotate(-45deg);}
+.checkbox .on:after {content: ''; position: absolute; top: 4px; left: 3px; width: 8px; height: 4px; border: 1px solid #ccc; border-top: 0; border-right: 0; transform: rotate(-45deg);}
 
 
 /* 선택된 체크박스 스타일 꾸미기 */
-.checkbox input[type="checkbox"]:checked + .on {background: var(--main-color); }
-.checkbox .on:after {content: ""; position: absolute; display: block; }
-.checkbox input[type="checkbox"]:checked + .on:after {display: block; border-color: #fff; }
+.checkbox input[type="checkbox"]:checked + .on {border-color: var(--main-color); background: var(--main-color); }
+.checkbox input[type="checkbox"]:checked + .on:after {border-color: #fff; }
 
 
 

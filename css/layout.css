@@ -31,7 +31,7 @@ html, body {position: relative; width: 100%; height: 100%; }
 /* ============================================
     editodo_wrap
 ============================================ */
-.container {align-self: stretch; background-color: #fff; }
+.container {align-self: stretch; padding-bottom: 100px; background-color: #fff; }
 
 
 
@@ -52,7 +52,7 @@ html, body {position: relative; width: 100%; height: 100%; }
 .editodo_datapicker .ui-widget-content .ui-state-default, 
 .editodo_datapicker .ui-widget-header .ui-state-default {width: 50px; height: 50px; margin: 0 auto; padding: 5px 0; box-sizing: border-box; border: none;  background-color: transparent; text-align: center; color: #222; font-weight: 600; }
 
-.editodo_datapicker .ui-state-default:after {content: ''; display: block; width: 20px; height: 20px; margin: 0 auto; box-sizing: border-box; border-radius: 100%; border: 1px dashed #eee; background-color: #4d1a1a; }
+.editodo_datapicker .ui-state-default:after {content: 'x'; display: block; width: 20px; height: 20px; margin: 0 auto; box-sizing: border-box; border-radius: 100%; border: 1px dashed #eee; background-color: transparent; color: #eee; }
 
 /* Active
 .editodo_datapicker .ui-state-active,
@@ -102,10 +102,28 @@ html, body {position: relative; width: 100%; height: 100%; }
     editodo_fnb
 ============================================ */
 .editodo_fnb {position: fixed; bottom: 0; left: 0; width: 100%; height: 60px;  box-sizing: border-box; border-top: 1px solid #eee; background-color: #fff; }
-.editodo_fnb .fnb_list {display: flex; justify-content: space-between; align-items: center; height: 100%;}
+.editodo_fnb .fnb_list {display: flex; justify-content: space-around; align-items: center; height: 100%;}
+.editodo_fnb .fnb_list .btn_fnb {background-repeat: no-repeat; background-size: 16px 18px;background-position: top center; padding-top: 22px; font-size: 12px; color: #222; font-weight: 500;}
+.editodo_fnb .fnb_list .fnb_todolist {background-image: url();}
+.editodo_fnb .fnb_list .fnb_calendar {background-image: url();}
+.editodo_fnb .fnb_list .fnb_todolist {background-image: url();}
+.editodo_fnb .fnb_list .fnb_daily {background-image: url();}
 
 
 
 
 
+/* ============================================
+    layer
+============================================ */
+.layer {display: none; position: fixed; top: 0; left: 0; z-index: 50;  width: 100%; height: 100%; }
+.layer .dim {position: absolute; top: 0; left: 0; z-index: 60; width: 100%; height: 100%; background-color: rgba(0,0,0,0.2); }
+.layer .layer_content {position: absolute; bottom: 0; left: 0; z-index: 70;}
 
+.layer_drop .layer_content {width: 100%; min-height: 180px; background-color: #fff; box-sizing: border-box; border-radius: 20px 20px 0 0; box-shadow: 0px -3px 14px rgba(34, 34, 34, 0.1);}
+.layer_drop .drop_header {position: relative; min-height: 80px; padding: 30px 15px;  box-sizing: border-box; border-bottom: 1px solid #eee; }
+.layer_drop .drop_header:after {content: ''; position: absolute; top: 5px; left: 50%; width: 50px; height: 3px; border-radius: 18px; background-color: #eee; transform: translateX(-50%); }
+.layer_drop .drop_header .drop_tit {display: block; font-size: 15px; text-align: center; font-weight: 500; color: #222;}
+.layer_drop .drop_list li {height: 50px; line-height: 50px;  }
+.layer_drop .drop_list .btn_drop {display: block; width: 100%; font-size: 14px; color: #444; text-align: center;}
+.layer_drop .drop_list .btn_del {color: #FF3030;}
