@@ -103,7 +103,8 @@ html, body {position: relative; width: 100%; height: 100%; }
 ============================================ */
 .editodo_fnb {position: fixed; bottom: 0; left: 0; width: 100%; height: 60px;  box-sizing: border-box; border-top: 1px solid #eee; background-color: #fff; }
 .editodo_fnb .fnb_list {display: flex; justify-content: space-around; align-items: center; height: 100%;}
-.editodo_fnb .fnb_list .btn_fnb {background-repeat: no-repeat; background-size: 16px 18px;background-position: top center; padding-top: 22px; font-size: 12px; color: #222; font-weight: 500;}
+.editodo_fnb .fnb_list .btn_fnb {background-repeat: no-repeat; background-size: 16px 18px;background-position: top center; padding-top: 22px; font-size: 12px; color: #AAAAAA; font-weight: 500;}
+.editodo_fnb .fnb_list .btn_fnb.active {color: #222;} 
 .editodo_fnb .fnb_list .fnb_todolist {background-image: url();}
 .editodo_fnb .fnb_list .fnb_calendar {background-image: url();}
 .editodo_fnb .fnb_list .fnb_todolist {background-image: url();}

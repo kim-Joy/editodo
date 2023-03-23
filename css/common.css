@@ -14,16 +14,6 @@
 
 
 
-/* ============================================
-    var color
-============================================ */
-:root { --main-color: #5AC1CC; --dark-color : #222; --gray-lavel-eee: #eee; }
-.font_main {color: var(--main-color); }
-.bg_main {background-color: var(--main-color); }
-
-
-
-
 
 
 /* =========================================

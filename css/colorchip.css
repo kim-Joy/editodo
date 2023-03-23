@@ -1,0 +1,127 @@
+@charset "utf-8";
+
+/* ============================================
+    common 
+============================================ */
+:root { 
+    --main-color: #5AC1CC; 
+    --dark-color: #222; 
+    --white-color: #fff;
+    --gray-lavel-eee: #eee; 
+
+    --darkmode-base-color : #12120A;
+
+    /*  디폴트 */
+    --light-base-default : #F5F5F5; --light-accent-default : #222222; 
+    --dark-base-default : #333333; --dark-accent-default : #D8D8D8;
+    
+     /* 민초 */     
+    --light-mimt-base: #D8F0EF; --light-mimt-dominant: #A7D3D2; --light-brown-accent: #997B6A;
+    --dark-mimt-base: #40817D; --dark-mimt-dominant: #A7D3D2; --dark-mimt-accent: #98D2CF;
+
+    /* 체리레몬*/
+    --light-lemon-base: #FFF3CA; --light-lemon-dominant: #D9CC9D; --light-cherry-accent: #F3637D;
+
+    /* 옐로우 */
+    --dark-yellow-base: #695D34; --dark-yellow-dominant: #97864D; --dark-yellow-accent: #EAE5BA;
+
+    /* 그린 */
+    --light-green-base: #E9FFDF; --light-green-dominant: #B9D9AA; --light-green-accent: #228262;
+    --dark-green-base: #374E2D; --dark-green-dominant: #59784C; --dark-green-accent: #CBE2BF;
+
+    /* 핑키 */
+    --light-pinky-base: #FFD8E7; --light-pinky-dominant: #FFB9D4; --light-pinky-accent: #FA6EA5;
+    --dark-pinky-base: #6F2945; --dark-pinky-dominant: #904765; --dark-pinky-accent: #FF9FC5;
+
+
+    /* 스타일 
+    ----------------------------------------------------- */
+    --style-round-20: 20px;
+
+    
+
+}
+
+.font_main {color: var(--main-color); }
+.bg_main {background-color: var(--main-color); }
+
+
+
+/* ============================================
+    lightMode  
+============================================ */
+/* 민초 */
+.palette_mincho:has(*) .todolist_table {background-color: var(--light-mimt-base); }
+.palette_mincho:has(*) .btn_dark {border-color: var(--light-brown-accent); background-color: var(--light-brown-accent); }
+.palette_mincho:has(*) .checkbox02 .on {border-color: var(--light-mimt-dominant); background-color: var(--light-mimt-dominant); }
+.palette_mincho:has(*) .checkbox02 input[type="checkbox"]:checked + .on {border-color: var(--light-brown-accent); background-color: var(--light-brown-accent); }
+
+/* 체리레몬 */
+.palette_cherrylemon:has(*) .todolist_table {background-color: var(--light-lemon-base); }
+.palette_cherrylemon:has(*) .btn_dark {border-color: var(--light-cherry-accent); background-color: var(--light-cherry-accent); }
+.palette_cherrylemon:has(*) .checkbox02 .on {border-color: var(--light-lemon-dominant); background-color: var(--light-lemon-dominant); }
+.palette_cherrylemon:has(*) .checkbox02 input[type="checkbox"]:checked + .on {border-color: var(--light-cherry-accent); background-color: var(--light-cherry-accent); }
+
+/* 그린 */
+.palette_green:has(*) .todolist_table {background-color: var(--light-green-base); }
+.palette_green:has(*) .btn_dark {border-color: var(--light-green-accent); background-color: var(--light-green-accent); }
+.palette_green:has(*) .checkbox02 .on {border-color: var(--light-green-dominant); background-color: var(--light-green-dominant); }
+.palette_green:has(*) .checkbox02 input[type="checkbox"]:checked + .on {border-color: var(--light-green-accent); background-color: var(--light-green-accent); }
+
+/* 핑키 */
+.palette_pinky:has(*) .todolist_table {background-color: var(--light-pinky-base); }
+.palette_pinky:has(*) .btn_dark {border-color: var(--light-pinky-accent); background-color: var(--light-pinky-accent); }
+.palette_pinky:has(*) .checkbox02 .on {border-color: var(--light-pinky-dominant); background-color: var(--light-pinky-dominant); }
+.palette_pinky:has(*) .checkbox02 input[type="checkbox"]:checked + .on {border-color: var(--light-pinky-accent); background-color: var(--light-pinky-accent); }
+
+
+
+
+/* ============================================
+    darkMode
+============================================ */
+.darkmode:has(*) .container {background-color: var(--darkmode-base-color); }
+.darkmode:has(*) .btn_dark {color: #333;}
+
+.darkmode:has(*) .editodo_fnb {border-color: #333333; background-color: var(--darkmode-base-color);}
+.darkmode:has(*) .editodo_fnb .fnb_list .btn_fnb {color: #666;}
+.darkmode:has(*) .editodo_fnb .fnb_list .btn_fnb.active {color: #BBBBBB;}
+
+
+
+
+
+
+/* 민초 */
+.darkmode.palette_mincho:has(*) .todolist_table {background-color: var(--dark-mimt-base); }
+.darkmode.palette_mincho:has(*) .btn_dark {border-color: var(--dark-mimt-accent); background-color: var(--dark-mimt-accent); }
+.darkmode.palette_mincho:has(*) .checkbox02 .on {border-color: var(--dark-mimt-dominant); background-color: var(--dark-mimt-dominant); }
+.darkmode.palette_mincho:has(*) .checkbox02 input[type="checkbox"]:checked + .on {border-color: var(--dark-mimt-accent); background-color: var(--dark-mimt-accent); }
+
+/* 옐로우 */
+.darkmode.palette_yellow:has(*) .todolist_table {background-color: var(--dark-yellow-base); }
+.darkmode.palette_yellow:has(*) .btn_dark {border-color: var(--dark-yellow-accent); background-color: var(--dark-yellow-accent); }
+.darkmode.palette_yellow:has(*) .checkbox02 .on {border-color: var(--dark-yellow-dominant); background-color: var(--dark-yellow-dominant); }
+.darkmode.palette_yellow:has(*) .checkbox02 input[type="checkbox"]:checked + .on {border-color: var(--dark-yellow-accent); background-color: var(--dark-yellow-accent); }
+
+/* 그린 */
+.darkmode.palette_green:has(*) .todolist_table {background-color: var(--dark-green-base); }
+.darkmode.palette_green:has(*) .btn_dark {border-color: var(--dark-green-accent); background-color: var(--dark-green-accent); }
+.darkmode.palette_green:has(*) .checkbox02 .on {border-color: var(--dark-green-dominant); background-color: var(--dark-green-dominant); }
+.darkmode.palette_green:has(*) .checkbox02 input[type="checkbox"]:checked + .on {border-color: var(--dark-green-accent); background-color: var(--dark-green-accent); }
+
+/* 핑키 */
+.darkmode.palette_pinky:has(*) .todolist_table {background-color: var(--dark-pinky-base); }
+.darkmode.palette_pinky:has(*) .btn_dark {border-color: var(--dark-pinky-accent); background-color: var(--dark-pinky-accent); }
+.darkmode.palette_pinky:has(*) .checkbox02 .on {border-color: var(--dark-pinky-dominant); background-color: var(--dark-pinky-dominant); }
+.darkmode.palette_pinky:has(*) .checkbox02 input[type="checkbox"]:checked + .on {border-color: var(--dark-pinky-accent); background-color: var(--dark-pinky-accent); }
+
+
+
+
+/* ============================================
+    style mode
+============================================ */
+/* 라운드 */
+.style_round:has(*) .todolist_table {border-radius: var(--style-round-20); }
+.style_round:has(*) .checkbox02 .on {border-radius: var(--style-round-20); }
