@@ -7,6 +7,13 @@
   <style>
     @import url("../css/style.css");
     </style>
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+  />
+
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
   <title>Document</title>
 </head>
 <body>
@@ -36,13 +43,22 @@
             더 많은 테마는 E-T에서 열심히 준비 중이에요!
           </p>
 
-          <ul class="layout_option theme">
-            <li class="on"><button type="button" class="btn_option">심플</button></li>
-            <li><button type="button" class="btn_option">라운드</button></li>
-            <li><button type="button" class="btn_option">스케치</button></li>
-            <li><button type="button" class="btn_option">키치</button></li>
-            <li><button type="button" class="btn_option">네모</button></li>
-          </ul>
+          <div class="swiper">
+            <ul class="layout_option theme swiper-wrapper">
+              <li class="on swiper-slide"><button type="button" class="btn_option">심플</button></li>
+              <li class="swiper-slide"><button type="button" class="btn_option">라운드</button></li>
+              <li class="swiper-slide"><button type="button" class="btn_option">스케치</button></li>
+              <li class="swiper-slide"><button type="button" class="btn_option">키치</button></li>
+              <li class="swiper-slide"><button type="button" class="btn_option">네모</button></li>
+              <li class="swiper-slide"><button type="button" class="btn_option">세모</button></li>
+              <li class="swiper-slide"><button type="button" class="btn_option">뭉치</button></li>
+              <li class="swiper-slide"><button type="button" class="btn_option">아름이</button></li>
+              <li class="swiper-slide"><button type="button" class="btn_option">장미</button></li>
+              <li class="swiper-slide"><button type="button" class="btn_option">미란이</button></li>
+              <li class="swiper-slide"><button type="button" class="btn_option">유명한</button></li>
+              <li class="swiper-slide"><button type="button" class="btn_option">코난</button></li>
+            </ul>
+          </div>
 
           <div class="layout_sample">
             <p class="caption">테마 미리보기</p>
@@ -59,3 +75,22 @@
   </div>
 </body>
 </html>
+
+<script>
+const btnOption = document.querySelectorAll('.btn_option');
+const swiper = new Swiper('.swiper', {
+     slidesPerView:'auto',
+     slideToClickedSlide: true, 
+     edgeSwipeThreshold: 20, // 앱 뒤로 스와이프 하기 위한 터치 이벤트를 해제를위한 왼쪽 여백
+     //loop: true,
+     on: {
+      activeIndexChange: function (e) {
+      const target = e.activeIndex;
+      $('.swiper-slide').removeClass('on');
+      $('.btn_option').eq(target).parent().addClass('on');
+    }
+  }
+});
+
+
+</script>
