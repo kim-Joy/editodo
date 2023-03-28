@@ -7,6 +7,7 @@
   <style>
     @import url("../css/style.css");
     </style>
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
   <title>Document</title>
 </head>
 <body>
@@ -49,13 +50,18 @@ textarea 입니다
           </ul>
         </div>
         <div class="bottom_btn_group">
-          <button type="buttton" class="btn btn_main full">기록 완료</button>
+          <button type="buttton" class="btn btn_main full" onclick="location.href='daily_write.html'">기록 수정</button>
         </div>
       </div>
       <!-- E: editodo_inner -->
     </div>
 
-
+    <div class="editodo_fnb" w3-include-html="../include/fnb.html"></div>
   </div>
 </body>
 </html>
+<script>
+
+  w3.includeHTML();
+  
+  </script>
