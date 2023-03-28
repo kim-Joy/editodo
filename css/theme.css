@@ -101,3 +101,13 @@
 .checkbox02 input[type="checkbox"]:checked + .on {border-color: #222; background: #222; }
 .checkbox02 input[type="checkbox"]:checked + .on:after {display: block; border-color: #fff; }
 .checkbox02:has(:checked) label {text-decoration: line-through; color: #aaa;}
+
+
+
+
+/* ============================================
+    하루기록 
+============================================ */
+.editodo_daily .tit {margin-top: 30px; font-weight: 600; font-size: 18px; color:#222; }
+.editodo_daily .record_daily {font-size: 14px; color: #444; }
+.editodo_daily .sticker_emoji {}

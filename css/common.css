@@ -90,3 +90,8 @@ button.disabled {opacity: 0.6; cursor: not-allowed; }
 .bottom_btn_group.horzion .btn_prev {border-color: var(--gray-lavel-eee); background-color: var(--gray-lavel-eee); color: #888; }
 
 .bottom_btn_group .btn.full {width: 100%; }
+
+
+
+
+.textarea {width: 100%; height: 300px; border: none; overflow-y: auto; overflow-x: none; }
