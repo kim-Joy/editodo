@@ -5,16 +5,15 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-  @import url("../css/style.css");
-  </style>
-  <script src="https://www.w3schools.com/lib/w3.js"></script>
+    @import url("../css/style.css");
+    </style>
   <title>Document</title>
 </head>
 <body>
   <div id="wrap" class="editodo_wrap">
-    <header class="header">
+    <header class="header side_pd">
       <div class="hd_util">
-        <button type="button" class="hd_back arrow"><span class="visuallyhidden">뒤로가기</span></button>
+        <button type="button" class="hd_back arrow01"><span class="visuallyhidden">뒤로가기</span></button>
       </div>
     </header>
 
@@ -22,7 +21,7 @@
       <!-- S: edito_inner -->
       <div class="editodo_inner side_pd">
         <h2 class="tit">오늘 하루를 기록해요.</h2>
-        <pre class="record_area">
+        <textarea class="record_area">
 오늘은
 투두 열시미 쓰고 2개는 지켰다
 
@@ -39,12 +38,13 @@ textarea 입니다
 
 ㅎ
 ㅎ
-        </pre>
+        </textarea>
         <div class="record_sammary">
-          <p>오늘 하루 요약 스티커</p>
+          <p class="txt">오늘 하루 요약 스티커</p>
           <ul class="sticker_emoji">
             <li></li>
             <li></li>
+            <li class="on"></li>
             <li></li>
           </ul>
         </div>
@@ -55,14 +55,7 @@ textarea 입니다
       <!-- E: editodo_inner -->
     </div>
 
-    <div class="editodo_fnb" w3-include-html="../include/fnb.html"></div>
 
   </div>
-
 </body>
 </html>
-<script>
-
-w3.includeHTML();
-
-</script>

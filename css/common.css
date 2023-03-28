@@ -78,7 +78,7 @@ button.disabled {opacity: 0.6; cursor: not-allowed; }
 
 /* 하단 버튼 영역 */
 .bottom_btn_group {margin-top: 20px; }
-.bottom_btn_group .btn {display: block; height: 50px; box-sizing: border-box; border: 1px solid var(--main-color); border-radius: 6px; font-size: 16px; text-align: center; font-weight: 500; line-height: 48px; }
+.bottom_btn_group .btn {display: block; height: 50px; box-sizing: border-box; border: 1px solid var(--main-color); border-radius: 6px; font-size: 16px; text-align: center; font-weight: 500; line-height: 48px; letter-spacing: -0.33px; }
 .bottom_btn_group .btn + .btn {margin-top: 10px; }
 .bottom_btn_group .btn_main {background-color: var(--main-color); color: #fff;}
 .bottom_btn_group .btn_sub {background-color: #fff; color: var(--main-color); }
@@ -94,4 +94,12 @@ button.disabled {opacity: 0.6; cursor: not-allowed; }
 
 
 
-.textarea {width: 100%; height: 300px; border: none; overflow-y: auto; overflow-x: none; }
+/* =========================================
+    textarea , pre 
+=========================================== */
+textarea::placeholder {color: #888 !important; opacity: 1;}
+textarea::-webkit-input-placeholder, input:-ms-input-placeholder,
+textarea:-mos-input-placeholder {color: #888;}
+
+
+textarea, pre {width: 100%; height: 400px; border: none; overflow-y: auto; overflow-x: hidden; line-height: 19px;}
