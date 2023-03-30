@@ -10,12 +10,6 @@ $(function(){
     swipeToSlide: true,
   });
 
-  $('.layout_option').on('afterChange', function(){
-    $('.slick-slide').removeClass('on');
-    $(this).find('.slick-current').addClass('on');
-  });
-
-
   //하루일기 이모지 
   $('.sticker_emoji').slick({
     slide: 'li',

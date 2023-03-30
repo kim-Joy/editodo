@@ -11,7 +11,7 @@
   <title>Document</title>
 </head>
 <body>
-  <div id="wrap" class="editodo_wrap palette_green style-round"> <!-- step03에 적용된 div class="sample_preview" 를 제외한 "style_round palette_green" 옵션 클래스명 추가 //darkmode 로 적용된 경우 class="darkmode" 추가 -->
+  <div id="wrap" class="editodo_wrap">
 
     <div class="container editodo_todolist">
       <!-- S: edito_inner -->
@@ -22,7 +22,7 @@
           <button type="button" class="btn_arrow datapicker_prev"><span class="">다음</span></button>
         </div>
         <div class="todolist_table" w3-include-html="../include/todolist_skin.html"></div> 
-        
+
         <div class="bottom_btn_group">
           <!-- 해당 요일에 하루기록이 저장되어 있는 경우. 
           <button type="buttton" class="btn btn_dark full" onclick="location.href='daily.html'">하루기록</button> -->
@@ -42,6 +42,12 @@
 </body>
 </html>
 <script>
+  const editodoWrap = document.querySelector('.editodo_wrap');
+  const theme = sessionStorage.getItem('theme');
+  const color = sessionStorage.getItem('color');
+
+  editodoWrap.classList.add(theme, color);
+
 
 w3.includeHTML();
 

@@ -43,7 +43,7 @@
 
           <ul class="layout_option theme">
             <li><button type="button" class="btn_option style_simple">심플</button></li>
-            <li class="on"><button type="button" class="btn_option style_round">라운드</button></li>
+            <li><button type="button" class="btn_option style_round">라운드</button></li>
             <li><button type="button" class="btn_option style_skitch">스케치</button></li>
             <li><button type="button" class="btn_option style_kitsch">키치</button></li>
             <li><button type="button" class="btn_option style_square">네모</button></li>
@@ -53,13 +53,7 @@
 
           <div class="layout_sample">
             <p class="caption">테마 미리보기</p>
-            <!-- 
-                옵션 선택시,
-                button class="btn_option ???"
-                ???클래스명 가져와 
-                div class="sample_preview ???"에 동일하게 뿌려주세요.
-            -->
-            <div class="sample_preview style_round"> 
+            <div class="sample_preview"> 
               <div class="todolist_table" w3-include-html="../include/sample_skin.html"></div>
             </div>
           </div>
@@ -76,5 +70,26 @@
 </html>
 
 <script>
-  w3.includeHTML();
+const preview = document.querySelector('.sample_preview');
+
+// 옵션 - 슬라이드 이동 후 이벤트 시작
+$('.layout_option').on('afterChange', function(){
+  const current = document.querySelector('.slick-current').children;
+  let target = current[0].classList[1];
+
+  $(this).find('.slick-current').addClass('on');
+  preview.classList.add(target); 
+  sessionStorage.setItem('theme' ,target);
+
+});
+
+//옵션  - 슬라이드 이동 전 이벤트 시작
+$('.layout_option').on('beforeChange', function(){
+const current = document.querySelector('.slick-current').children;
+let target = current[0].classList[1];
+  $('.slick-slide').removeClass('on');
+  preview.classList.remove(target);
+});
+
+w3.includeHTML();
 </script>

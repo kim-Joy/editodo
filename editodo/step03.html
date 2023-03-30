@@ -34,7 +34,7 @@
           <h3 class="title">나만의 Todolist 생성 완료!<br >
             아래의 테마가 맞는지 확인해 주세요.</h3>
           <div class="layout_sample">
-            <div class="sample_preview style_round palette_green">
+            <div class="sample_preview">
               <div class="todolist_table" w3-include-html="../include/sample_skin.html"></div>
             </div>
           </div>
@@ -52,5 +52,11 @@
 </body>
 </html>
 <script>
+  const theme = sessionStorage.getItem('theme');
+  const color = sessionStorage.getItem('color');
+  const preview = document.querySelector('.sample_preview');
+
+  preview.classList.add(theme, color);
+
   w3.includeHTML();
 </script>
