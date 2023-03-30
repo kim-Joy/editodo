@@ -7,6 +7,12 @@
   <style>
     @import url("../css/style.css");
     </style>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
   <title>Document</title>
 </head>
 <body>
@@ -36,32 +42,32 @@
           </p>
 
           <ul class="layout_option color">
-            <li class="on">
-              <button type="button" class="btn_option">
+            <li>
+              <button type="button" class="btn_option option_default">
                 <span style="background-color: #f5f5f5;">#f5f5f5</span>
                 <span style="background-color: #222;">#222</span>
               </button>
             </li>
             <li>
-              <button type="button" class="btn_option">
+              <button type="button" class="btn_option option_darkmode">
                 <span style="background-color: #12120A;">#12120A</span>
                 <span style="background-color: #D8D8D8;">#D8D8D8</span>
               </button>
             </li>
             <li>
-              <button type="button" class="btn_option">
+              <button type="button" class="btn_option option_palette_mincho">
                 <span style="background-color: #D8F0EF;">#D8F0EF</span>
                 <span style="background-color: #997B6A;">#997B6A</span>
               </button>
             </li>
             <li>
-              <button type="button" class="btn_option">
+              <button type="button" class="btn_option option_palette_cherrylemon">
                 <span style="background-color: #FFF3CA;">#FFF3CA</span>
                 <span style="background-color: #F3637D;">#F3637D</span>
               </button>
             </li>
-            <li>
-              <button type="button" class="btn_option">
+            <li class="on">
+              <button type="button" class="btn_option option_palette_green">
                 <span style="background-color: #F3FEF0;">#F3FEF0</span>
                 <span style="background-color: #228262;">#228262</span>
               </button>
@@ -70,7 +76,15 @@
 
           <div class="layout_sample">
             <p class="caption">테마 미리보기</p>
-            <div class="sample_preview"></div>
+            <!-- 
+                옵션 선택시,
+                button class="btn_option option_???_???"
+                ???_???클래스명 가져와 
+                div class="sample_preview ???_???"에 동일하게 뿌려주세요.
+            -->
+            <div class="sample_preview style_round palette_green">
+              <div class="todolist_table" w3-include-html="../include/sample_skin.html"></div>
+            </div>
           </div>
         </section>
 
@@ -84,3 +98,7 @@
   </div>
 </body>
 </html>
+
+<script>
+  w3.includeHTML();
+</script>

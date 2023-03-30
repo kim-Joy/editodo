@@ -1,1 +1,20 @@
 @charset "uft-8";
+
+
+
+/* ============================================
+    editodo_mypage (nav)  
+============================================ */
+.editodo_mypage {background-color: #F7F8F9; }
+.editodo_mypage.bg-white {background-color: #fff; }
+.editodo_mypage .mypage_info {height: 60px; padding: 0 16px; box-sizing: border-box; border-bottom: 1px solid #eee; background-color: #fff; line-height: 60px; }
+.editodo_mypage .mypage_info .btn_info {font-size: 20px; color:#222; font-weight: 600; letter-spacing: -0.33px;}
+.editodo_mypage .mypage_info .mypage_arrow {display: inline-block; width: 12px; height: 12px; background-image: url(); background-repeat: no-repeat; background-size: contain; background-position: left center;}
+
+.editodo_mypage .category {margin-top: 10px; border-bottom: 1px solid #eee; }
+.editodo_mypage .category li {height: 45px; padding: 0 20px; background-color: #fff; line-height: 45px; font-size: 14px; color: #444;}
+.editodo_mypage .category .btn_category {display: block; width: 100%; height: 100%; line-height: 45px; font-size: 14px; color: #444;}
+.editodo_mypage .category .btn_category.arrow {}
+
+.editodo_mypage .category_util > li {position: relative; }
+.editodo_mypage .category_util .category_state {position: absolute; top: 0; right: 20px; color: #888; font-size: 13px; text-align: right; }

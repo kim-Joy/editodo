@@ -11,13 +11,14 @@
   <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
   <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <script src="https://www.w3schools.com/lib/w3.js"></script>
   <title>Document</title>
 </head>
 <body>
   <div id="wrap" class="editodo_wrap">
 
     <div class="container editodo_calendar">
-      <div class="editodo_inner side_pd">
+      <div class="editodo_inner side_pd" style="display: none;">
         <div id="datapicker" class="editodo_datapicker"></div>
         <!-- S: 등록된 리스트 -->
         <div id="daily_diary" class="daily_diary">
@@ -31,28 +32,59 @@
         </div>
         <!-- E: 등록된 리스트 -->
       </div>
+
+      <div class="editodo_inner side_pd">
+        <div class="my-calendar clearfix">
+          <div class="clicked-date" style="display: none; ">
+            <div class="cal-day"></div>
+            <div class="cal-date"></div>
+          </div>
+          <div class="calendar-box">
+            <div class="ctr-box clearfix">
+              <button type="button" title="prev" class="btn-cal prev">
+              </button>
+              
+              <span class="cal-year"></span>.<span class="cal-month"></span>
+              <button type="button" title="next" class="btn-cal next">
+              </button>
+            </div>
+            <table class="cal-table">
+              <thead>
+                <tr>
+                  <th>일</th>
+                  <th>월</th>
+                  <th>화</th>
+                  <th>수</th>
+                  <th>목</th>
+                  <th>금</th>
+                  <th>토</th>
+                </tr>
+              </thead>
+              <tbody class="cal-body"></tbody>
+            </table>
+          </div>
+        </div>
+        <!-- S: 등록된 리스트 -->
+        <div id="daily_diary" class="daily_diary">
+          <div class="todo_box">
+            <ul id="todo-list"></ul>
+          </div>
+          
+          <div class="bottom_btn_group">
+            <button type="buttton" class="btn btn_dark full">하루기록</button>
+          </div>
+        </div>
+        <!-- E: 등록된 리스트 -->
+      </div>  
     </div>
 
-    <div class="editodo_fnb">
-      <ul class="fnb_list">
-        <li>
-          <button type="button" onclick="location.href='../editodo/todolist.html'" class="btn_fnb fnb_todolist">투두리스트</button>
-        </li>
-        <li>
-          <button type="button" onclick="location.href='../editodo/calendar.html'" class="btn_fnb fnb_calendar">캘린더</button>
-        </li>
-        <li>
-          <button type="button" onclick="location.href='../editodo/daily.html'" class="btn_fnb fnb_daily">하루일기</button>
-        </li>
-        <li>
-          <button type="button" onclick="location.href='../mypage/mypage.html'" class="btn_fnb btn_mypage">마이페이지</button>
-        </li>
-      </ul>
-    </div>
+    <div class="editodo_fnb" w3-include-html="../include/fnb.html"></div>
 
   </div>
+  <div w3-include-html="../include/layer_drop.html"></div>
 </body>
 </html>
+
 
 <script>
   $(function () {
@@ -133,4 +165,148 @@
     console.log('dd');
     $('.drop_layer').addClass('on');
   }
+</script>
+<script>
+  // ================================
+  // START YOUR APP HERE
+  // ================================
+  const init = {
+    monList: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'],
+    dayList: ['일', '월', '화', '수', '목', '금', '토'],
+    today: new Date(),
+    monForChange: new Date().getMonth(),
+    activeDate: new Date(),
+    getFirstDay: (yy, mm) => new Date(yy, mm, 1),
+    getLastDay: (yy, mm) => new Date(yy, mm + 1, 0),
+    nextMonth: function () {
+      let d = new Date();
+      d.setDate(1);
+      d.setMonth(++this.monForChange);
+      this.activeDate = d;
+      return d;
+    },
+    prevMonth: function () {
+      let d = new Date();
+      d.setDate(1);
+      d.setMonth(--this.monForChange);
+      this.activeDate = d;
+      return d;
+    },
+    addZero: (num) => (num < 10) ? '0' + num : num,
+    activeDTag: null,
+    getIndex: function (node) {
+      let index = 0;
+      while (node = node.previousElementSibling) {
+        index++;
+      }
+      return index;
+    }
+  };
+  
+  const $calBody = document.querySelector('.cal-body');
+  const $btnNext = document.querySelector('.btn-cal.next');
+  const $btnPrev = document.querySelector('.btn-cal.prev');
+  
+  /**
+   * @param {number} date
+   * @param {number} dayIn
+  */
+  function loadDate (date, dayIn) {
+    document.querySelector('.cal-date').textContent = date;
+    document.querySelector('.cal-day').textContent = init.dayList[dayIn];
+  }
+  
+  /**
+   * @param {date} fullDate
+   */
+  function loadYYMM (fullDate) {
+    let yy = fullDate.getFullYear();
+    let mm = fullDate.getMonth();
+    let firstDay = init.getFirstDay(yy, mm);
+    let lastDay = init.getLastDay(yy, mm);
+    let markToday;  // for marking today date
+    
+    if (mm === init.today.getMonth() && yy === init.today.getFullYear()) {
+      markToday = init.today.getDate();
+    }
+  
+    document.querySelector('.cal-month').textContent = init.monList[mm];
+    document.querySelector('.cal-year').textContent = yy;
+  
+    let trtd = '';
+    let startCount;
+    let countDay = 0;
+    for (let i = 0; i < 6; i++) {
+      trtd += '<tr>';
+      for (let j = 0; j < 7; j++) {
+        if (i === 0 && !startCount && j === firstDay.getDay()) {
+          startCount = 1;
+        }
+        if (!startCount) {
+          trtd += '<td>'
+        } else {
+          let fullDate = yy + '.' + init.addZero(mm + 1) + '.' + init.addZero(countDay + 1);
+          trtd += '<td class="day';
+          trtd += (markToday && markToday === countDay + 1) ? ' today" ' : '"';
+          trtd += ` data-date="${countDay + 1}" data-fdate="${fullDate}">`;
+          trtd += '<span class="todo_face"></span>'
+        }
+        trtd += (startCount) ? ++countDay : '';
+        if (countDay === lastDay.getDate()) { 
+          startCount = 0; 
+        }
+        trtd += '</td>';
+      }
+      trtd += '</tr>';
+    }
+    $calBody.innerHTML = trtd;
+  }
+  
+  /**
+   * @param {string} val
+   */
+  function createNewList (val) {
+    let id = new Date().getTime() + '';
+    let yy = init.activeDate.getFullYear();
+    let mm = init.activeDate.getMonth() + 1;
+    let dd = init.activeDate.getDate();
+    let span = document.createElement('span');
+    const $target = $calBody.querySelector(`.day[data-date="${dd}"]`);
+  
+    let date = yy + '.' + init.addZero(mm) + '.' + init.addZero(dd);
+  
+    let eventData = {};
+    eventData['date'] = date;
+    eventData['memo'] = val;
+    eventData['complete'] = false;
+    eventData['id'] = id;
+    init.event.push(eventData);
+    $todoList.appendChild(createLi(id, val, date));
+  
+    
+  }
+  
+  loadYYMM(init.today);
+  loadDate(init.today.getDate(), init.today.getDay());
+  
+  $btnNext.addEventListener('click', () => loadYYMM(init.nextMonth()));
+  $btnPrev.addEventListener('click', () => loadYYMM(init.prevMonth()));
+  
+  $calBody.addEventListener('click', (e) => {
+    if (e.target.classList.contains('day')) {
+      if (init.activeDTag) {
+        init.activeDTag.classList.remove('day-active');
+      }
+      let day = Number(e.target.textContent);
+      loadDate(day, e.target.cellIndex);
+      e.target.classList.add('day-active');
+      init.activeDTag = e.target;
+      init.activeDate.setDate(day);
+      reloadTodo();
+    }
+  
+  });
+  </script>
+<script>
+  w3.includeHTML();
 </script>

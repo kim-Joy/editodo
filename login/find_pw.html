@@ -7,6 +7,7 @@
   <style>
     @import url("../css/style.css");
     </style>
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
   <title>Document</title>
 </head>
 <body>
@@ -80,22 +81,7 @@
       <!-- E: editodo_inner -->
     </div>
 
-    <div class="editodo_fnb">
-      <ul class="fnb_list">
-        <li>
-          <button type="button" onclick="location.href='../editodo/todolist.html'" class="btn_fnb fnb_todolist">투두리스트</button>
-        </li>
-        <li>
-          <button type="button" onclick="location.href='../editodo/calendar.html'" class="btn_fnb fnb_calendar">캘린더</button>
-        </li>
-        <li>
-          <button type="button" onclick="location.href='../editodo/daily.html'" class="btn_fnb fnb_daily">하루일기</button>
-        </li>
-        <li>
-          <button type="button" onclick="location.href='../mypage/mypage.html'" class="btn_fnb btn_mypage">마이페이지</button>
-        </li>
-      </ul>
-    </div>
+    <div class="editodo_fnb" w3-include-html="../include/fnb.html"></div>
 
   </div>
 </body>
@@ -154,4 +140,5 @@ function handlerSubmitPw(){
   refer.addEventListener("click", handlerRefer);
   submit.addEventListener("click", handlerSubmitPw)
   
+  w3.includeHTML();
   </script>

@@ -7,13 +7,11 @@
   <style>
     @import url("../css/style.css");
     </style>
-    <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
-  />
-
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
   <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <script src="../js/common.js"></script>
+  <script src="https://www.w3schools.com/lib/w3.js"></script>
   <title>Document</title>
 </head>
 <body>
@@ -43,26 +41,27 @@
             더 많은 테마는 E-T에서 열심히 준비 중이에요!
           </p>
 
-          <div class="swiper">
-            <ul class="layout_option theme swiper-wrapper">
-              <li class="on swiper-slide"><button type="button" class="btn_option">심플</button></li>
-              <li class="swiper-slide"><button type="button" class="btn_option">라운드</button></li>
-              <li class="swiper-slide"><button type="button" class="btn_option">스케치</button></li>
-              <li class="swiper-slide"><button type="button" class="btn_option">키치</button></li>
-              <li class="swiper-slide"><button type="button" class="btn_option">네모</button></li>
-              <li class="swiper-slide"><button type="button" class="btn_option">세모</button></li>
-              <li class="swiper-slide"><button type="button" class="btn_option">뭉치</button></li>
-              <li class="swiper-slide"><button type="button" class="btn_option">아름이</button></li>
-              <li class="swiper-slide"><button type="button" class="btn_option">장미</button></li>
-              <li class="swiper-slide"><button type="button" class="btn_option">미란이</button></li>
-              <li class="swiper-slide"><button type="button" class="btn_option">유명한</button></li>
-              <li class="swiper-slide"><button type="button" class="btn_option">코난</button></li>
-            </ul>
-          </div>
+          <ul class="layout_option theme">
+            <li><button type="button" class="btn_option style_simple">심플</button></li>
+            <li class="on"><button type="button" class="btn_option style_round">라운드</button></li>
+            <li><button type="button" class="btn_option style_skitch">스케치</button></li>
+            <li><button type="button" class="btn_option style_kitsch">키치</button></li>
+            <li><button type="button" class="btn_option style_square">네모</button></li>
+            <li><button type="button" class="btn_option style_triangle">세모</button></li>
+
+          </ul>
 
           <div class="layout_sample">
             <p class="caption">테마 미리보기</p>
-            <div class="sample_preview"></div>
+            <!-- 
+                옵션 선택시,
+                button class="btn_option ???"
+                ???클래스명 가져와 
+                div class="sample_preview ???"에 동일하게 뿌려주세요.
+            -->
+            <div class="sample_preview style_round"> 
+              <div class="todolist_table" w3-include-html="../include/sample_skin.html"></div>
+            </div>
           </div>
         </section>
 
@@ -77,20 +76,5 @@
 </html>
 
 <script>
-const btnOption = document.querySelectorAll('.btn_option');
-const swiper = new Swiper('.swiper', {
-     slidesPerView:'auto',
-     slideToClickedSlide: true, 
-     edgeSwipeThreshold: 20, // 앱 뒤로 스와이프 하기 위한 터치 이벤트를 해제를위한 왼쪽 여백
-     //loop: true,
-     on: {
-      activeIndexChange: function (e) {
-      const target = e.activeIndex;
-      $('.swiper-slide').removeClass('on');
-      $('.btn_option').eq(target).parent().addClass('on');
-    }
-  }
-});
-
-
+  w3.includeHTML();
 </script>

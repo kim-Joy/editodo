@@ -7,6 +7,10 @@
   <style>
     @import url("../css/style.css");
     </style>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+        <script src="../js/common.js"></script>
     <script src="https://www.w3schools.com/lib/w3.js"></script>
   <title>Document</title>
 </head>
@@ -16,13 +20,14 @@
       <div class="hd_util">
         <button type="button" class="hd_back arrow01"><span class="visuallyhidden">뒤로가기</span></button>
       </div>
+      <h3 class="hd_tit" style="text-indent: -9999px;">하루일기</h3>
     </header>
 
     <div class="container editodo_daily">
       <!-- S: edito_inner -->
       <div class="editodo_inner side_pd">
         <h2 class="tit">오늘 하루를 기록해요.</h2>
-        <textarea class="record_area">
+        <pre class="record_area">
 오늘은
 투두 열시미 쓰고 2개는 지켰다
 
@@ -39,7 +44,7 @@ textarea 입니다
 
 ㅎ
 ㅎ
-        </textarea>
+        </pre>
         <div class="record_sammary">
           <p class="txt">오늘 하루 요약 스티커</p>
           <ul class="sticker_emoji">

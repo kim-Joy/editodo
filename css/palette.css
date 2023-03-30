@@ -55,24 +55,32 @@
 .palette_mincho .btn_dark {border-color: var(--light-brown-accent); background-color: var(--light-brown-accent); }
 .palette_mincho .checkbox02 .on {border-color: var(--light-mimt-dominant); background-color: var(--light-mimt-dominant); }
 .palette_mincho .checkbox02 input[type="checkbox"]:checked + .on {border-color: var(--light-brown-accent); background-color: var(--light-brown-accent); }
+.palette_mincho .checkbox02 label {color: #1D5A58; }
+.palette_mincho .checkbox02:has(:checked) label {color: #679A98;}
 
 /* 체리레몬 */
 .palette_cherrylemon .todolist_table {background-color: var(--light-lemon-base); }
 .palette_cherrylemon .btn_dark {border-color: var(--light-cherry-accent); background-color: var(--light-cherry-accent); }
 .palette_cherrylemon .checkbox02 .on {border-color: var(--light-lemon-dominant); background-color: var(--light-lemon-dominant); }
 .palette_cherrylemon .checkbox02 input[type="checkbox"]:checked + .on {border-color: var(--light-cherry-accent); background-color: var(--light-cherry-accent); }
+.palette_cherrylemon .checkbox02 label {color: #473C15; }
+.palette_cherrylemon .checkbox02:has(:checked) label {color: #958D71;}
 
 /* 그린 */
 .palette_green .todolist_table {background-color: var(--light-green-base); }
 .palette_green .btn_dark {border-color: var(--light-green-accent); background-color: var(--light-green-accent); }
 .palette_green .checkbox02 .on {border-color: var(--light-green-dominant); background-color: var(--light-green-dominant); }
 .palette_green .checkbox02 input[type="checkbox"]:checked + .on {border-color: var(--light-green-accent); background-color: var(--light-green-accent); }
+.palette_green .checkbox02 label {color: #18320C; }
+.palette_green .checkbox02:has(:checked) label {color: #829C76;}
 
 /* 핑키 */
 .palette_pinky .todolist_table {background-color: var(--light-pinky-base); }
 .palette_pinky .btn_dark {border-color: var(--light-pinky-accent); background-color: var(--light-pinky-accent); }
 .palette_pinky .checkbox02 .on {border-color: var(--light-pinky-dominant); background-color: var(--light-pinky-dominant); }
 .palette_pinky .checkbox02 input[type="checkbox"]:checked + .on {border-color: var(--light-pinky-accent); background-color: var(--light-pinky-accent); }
+.palette_pinky .checkbox02 label {color: #411023; }
+.palette_pinky .checkbox02:has(:checked) label {color: #AB7B8E;}
 
 
 
@@ -93,28 +101,36 @@
 
 
 /* 민초 */
-.darkmode.palette_mincho:has(*) .todolist_table {background-color: var(--dark-mimt-base); }
-.darkmode.palette_mincho:has(*) .btn_dark {border-color: var(--dark-mimt-accent); background-color: var(--dark-mimt-accent); }
-.darkmode.palette_mincho:has(*) .checkbox02 .on {border-color: var(--dark-mimt-dominant); background-color: var(--dark-mimt-dominant); }
-.darkmode.palette_mincho:has(*) .checkbox02 input[type="checkbox"]:checked + .on {border-color: var(--dark-mimt-accent); background-color: var(--dark-mimt-accent); }
+.darkmode.palette_mincho .todolist_table {background-color: var(--dark-mimt-base); }
+.darkmode.palette_mincho .btn_dark {border-color: var(--dark-mimt-accent); background-color: var(--dark-mimt-accent); }
+.darkmode.palette_mincho .checkbox02 .on {border-color: var(--dark-mimt-dominant); background-color: var(--dark-mimt-dominant); }
+.darkmode.palette_mincho .checkbox02 input[type="checkbox"]:checked + .on {border-color: var(--dark-mimt-accent); background-color: var(--dark-mimt-accent); }
+.darkmode.palette_mincho .checkbox02 label {color: #DFF1F0; }
+.darkmode.palette_mincho .checkbox02:has(:checked) label {color: #78ABA9;}
 
 /* 옐로우 */
-.darkmode.palette_yellow:has(*) .todolist_table {background-color: var(--dark-yellow-base); }
-.darkmode.palette_yellow:has(*) .btn_dark {border-color: var(--dark-yellow-accent); background-color: var(--dark-yellow-accent); }
-.darkmode.palette_yellow:has(*) .checkbox02 .on {border-color: var(--dark-yellow-dominant); background-color: var(--dark-yellow-dominant); }
-.darkmode.palette_yellow:has(*) .checkbox02 input[type="checkbox"]:checked + .on {border-color: var(--dark-yellow-accent); background-color: var(--dark-yellow-accent); }
+.darkmode.palette_yellow .todolist_table {background-color: var(--dark-yellow-base); }
+.darkmode.palette_yellow .btn_dark {border-color: var(--dark-yellow-accent); background-color: var(--dark-yellow-accent); }
+.darkmode.palette_yellow .checkbox02 .on {border-color: var(--dark-yellow-dominant); background-color: var(--dark-yellow-dominant); }
+.darkmode.palette_yellow .checkbox02 input[type="checkbox"]:checked + .on {border-color: var(--dark-yellow-accent); background-color: var(--dark-yellow-accent); }
+.darkmode.palette_yellow .checkbox02 label {color: #F2EEE0; }
+.darkmode.palette_yellow .checkbox02:has(:checked) label {color: #958D71;}
 
 /* 그린 */
-.darkmode.palette_green:has(*) .todolist_table {background-color: var(--dark-green-base); }
-.darkmode.palette_green:has(*) .btn_dark {border-color: var(--dark-green-accent); background-color: var(--dark-green-accent); }
-.darkmode.palette_green:has(*) .checkbox02 .on {border-color: var(--dark-green-dominant); background-color: var(--dark-green-dominant); }
-.darkmode.palette_green:has(*) .checkbox02 input[type="checkbox"]:checked + .on {border-color: var(--dark-green-accent); background-color: var(--dark-green-accent); }
+.darkmode.palette_green .todolist_table {background-color: var(--dark-green-base); }
+.darkmode.palette_green .btn_dark {border-color: var(--dark-green-accent); background-color: var(--dark-green-accent); }
+.darkmode.palette_green .checkbox02 .on {border-color: var(--dark-green-dominant); background-color: var(--dark-green-dominant); }
+.darkmode.palette_green .checkbox02 input[type="checkbox"]:checked + .on {border-color: var(--dark-green-accent); background-color: var(--dark-green-accent); }
+.darkmode.palette_green .checkbox02 label {color: #EDFAE7; }
+.darkmode.palette_green .checkbox02:has(:checked) label {color: #829C76;}
 
 /* 핑키 */
-.darkmode.palette_pinky:has(*) .todolist_table {background-color: var(--dark-pinky-base); }
-.darkmode.palette_pinky:has(*) .btn_dark {border-color: var(--dark-pinky-accent); background-color: var(--dark-pinky-accent); }
-.darkmode.palette_pinky:has(*) .checkbox02 .on {border-color: var(--dark-pinky-dominant); background-color: var(--dark-pinky-dominant); }
-.darkmode.palette_pinky:has(*) .checkbox02 input[type="checkbox"]:checked + .on {border-color: var(--dark-pinky-accent); background-color: var(--dark-pinky-accent); }
+.darkmode.palette_pinky .todolist_table {background-color: var(--dark-pinky-base); }
+.darkmode.palette_pinky .btn_dark {border-color: var(--dark-pinky-accent); background-color: var(--dark-pinky-accent); }
+.darkmode.palette_pinky .checkbox02 .on {border-color: var(--dark-pinky-dominant); background-color: var(--dark-pinky-dominant); }
+.darkmode.palette_pinky .checkbox02 input[type="checkbox"]:checked + .on {border-color: var(--dark-pinky-accent); background-color: var(--dark-pinky-accent); }
+.darkmode.palette_pinky .checkbox02 label {color: #F3DBE4; }
+.darkmode.palette_pinky .checkbox02:has(:checked) label {color: #AB7B8E;}
 
 
 
@@ -123,5 +139,5 @@
     style mode
 ============================================ */
 /* 라운드 */
-.style_round:has(*) .todolist_table {border-radius: var(--style-round-20); }
-.style_round:has(*) .checkbox02 .on {border-radius: var(--style-round-20); }
+.style_round .todolist_table {border-radius: var(--style-round-20); }
+.style_round .checkbox02 .on {border-radius: var(--style-round-20); }
