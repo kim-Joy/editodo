@@ -94,28 +94,31 @@
 </html>
 
 <script>
-const preview = document.querySelector('.sample_preview');
-const theme = sessionStorage.getItem('theme');
+$(function(){
+  const preview = document.querySelector('.sample_preview');
+  const theme = sessionStorage.getItem('theme');
 
-preview.classList.add(theme);
-// 옵션 - 슬라이드 이동 후 이벤트 시작
-$('.layout_option').on('afterChange', function(){
+  preview.classList.add(theme);
+  // 옵션 - 슬라이드 이동 후 이벤트 시작
+  $('.layout_option').on('afterChange', function(){
+    const current = document.querySelector('.slick-current').children;
+    let target = current[0].classList[1];
+
+    $(this).find('.slick-current').addClass('on');
+    preview.classList.add(target); 
+    sessionStorage.setItem('color' ,target);
+
+  });
+
+  //옵션  - 슬라이드 이동 전 이벤트 시작
+  $('.layout_option').on('beforeChange', function(){
   const current = document.querySelector('.slick-current').children;
   let target = current[0].classList[1];
+    $('.slick-slide').removeClass('on');
+    preview.classList.remove(target);
+  });
 
-  $(this).find('.slick-current').addClass('on');
-  preview.classList.add(target); 
-  sessionStorage.setItem('color' ,target);
-
-});
-
-//옵션  - 슬라이드 이동 전 이벤트 시작
-$('.layout_option').on('beforeChange', function(){
-const current = document.querySelector('.slick-current').children;
-let target = current[0].classList[1];
-  $('.slick-slide').removeClass('on');
-  preview.classList.remove(target);
-});
+}); //End
 
   w3.includeHTML();
 </script>

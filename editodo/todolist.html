@@ -47,11 +47,23 @@
 </body>
 </html>
 <script>
+$(function(){
   const editodoWrap = document.querySelector('.editodo_wrap');
   const theme = sessionStorage.getItem('theme');
   const color = sessionStorage.getItem('color');
 
   editodoWrap.classList.add(theme, color);
+
+  //더보기 
+  $('.item_more').on('click', function(){
+    $('.layer').css('display', 'block');
+  });
+
+  $('.dim').on('click', function(){
+    $('.layer').css('display', 'none');
+  });
+
+}); //End
 
 
 w3.includeHTML();
