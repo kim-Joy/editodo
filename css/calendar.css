@@ -110,12 +110,12 @@
   border-radius: 50%;
   color: #fff;
 } */
-/* active */
+/* active
 .cal-table td.day-active {
   background: #ff8585;
   border-radius: 50%;
   color: #fff;
-} 
+}  */
  
 .cal-table td.has-event:after {
   content: '';
