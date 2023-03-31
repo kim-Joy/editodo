@@ -7,11 +7,17 @@
 /* 제 1 조 */
 .policy-count.chapter {counter-reset: period; }
 .policy-count.chapter > li {counter-increment: period; }
-.policy-count.chapter > li:before {content: "제 " counter(period)" 조"; margin-right: 5px; font-size: 13px; color: #000; font-weight: 500; }
+.policy-count.chapter > li:before {content: "제 " counter(period)" 조"; margin-right: 5px; font-size: 13px; color: #666; font-weight: 500; }
+
+
+/* 1 */
+.policy-count.num > li {counter-increment: count; }
+.policy-count.num > li:before {content: counter(count) "."; margin-right: 5px; }
 
 /* (1) */
 .policy-count.brackets > li {counter-increment: count; }
 .policy-count.brackets > li:before {content: "(" counter(count) ")"; margin-right: 5px; }
+
 
 /* ① */
 .policy-count.ellipse > li {counter-increment: number; }
@@ -42,3 +48,16 @@
 .list-number {counter-reset: period; }
 .list-number > li {counter-increment: period; }
 .list-number > li:before {content: counter(period)"."; margin-right: 5px; }
+
+
+
+/* ================================================
+  terms
+==================================================*/
+.policy {color: #666; font-size: 14px; font-weight: 400; line-height: 19px;}
+.policy h3 {color: #666; font-size: 14px; font-weight: 400;}
+.policy h3 + p {margin-top: 20px; }
+.policy p + p {margin-top: 20px; }
+.policy .policy-count.chapter p {margin-top: 0; }
+.policy .policy-count li {margin-top: 40px; color: #666; }
+.policy .policy-count p {margin-top: 20px; } 

@@ -25,6 +25,4 @@ $(function(){
     $(this).find('.slick-current').addClass('on');
   });
 
-
-  
 }); //End
