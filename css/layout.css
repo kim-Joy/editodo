@@ -18,11 +18,12 @@ html, body {position: relative; width: 100%; height: 100%; }
 /* ============================================
     header
 ============================================ */
-#wrap .header {position: relative; width: 100%; height: 50px; background-color: #fff; line-height: 50px; }
-.header .hd_util {position: absolute; top: 0; left: 18px; }
-.header .hd_util .hd_back {width: 30px; height: 30px; background-repeat: no-repeat; background-position: left center; background-position: 6px 12px;}
-.header .hd_util .hd_back.arrow01 {background-image: url("");}
-.header .hd_tit {font-size: 16px; text-align: center; color: #222; font-weight: 600; letter-spacing: -0.33px;}
+#wrap .header {position: relative; width: 100%; height: 50px; background-color: #fff;}
+.header .hd_util {position: absolute; top: 10px; left: 18px; width: 30px; height: 30px; }
+.header .hd_util .hd_back {background-color: #222;}
+.header .hd_util .hd_back.arrow01 {width: 6px; height: 12px; -webkit-mask-image: url("../images/hd_direction_lt.svg"); mask-image: url("../images/hd_direction_lt.svg");}
+.header .hd_util .hd_back.arrow02 {width: 16px; height: 16px;-webkit-mask-image: url("../images/hd_arrow.svg"); mask-image: url("../images/hd_arrow.svg");}
+.header .hd_tit {height: 50px; font-size: 16px; text-align: center; color: #222; font-weight: 600; line-height: 50px; letter-spacing: -0.33px;}
 
 
 
@@ -42,12 +43,15 @@ html, body {position: relative; width: 100%; height: 100%; }
 ============================================ */
 .editodo_fnb {position: fixed; bottom: 0; left: 0; width: 100%; height: 60px;  box-sizing: border-box; border-top: 1px solid #eee; background-color: #fff; }
 .editodo_fnb .fnb_list {display: flex; justify-content: space-around; align-items: center; height: 100%;}
-.editodo_fnb .fnb_list .btn_fnb {background-repeat: no-repeat; background-size: 16px 18px;background-position: top center; padding-top: 22px; font-size: 12px; color: #AAAAAA; font-weight: 500; letter-spacing: -0.33px;}
-.editodo_fnb .fnb_list .btn_fnb.active {color: #222;} 
-.editodo_fnb .fnb_list .fnb_todolist {background-image: url();}
-.editodo_fnb .fnb_list .fnb_calendar {background-image: url();}
-.editodo_fnb .fnb_list .fnb_todolist {background-image: url();}
-.editodo_fnb .fnb_list .fnb_daily {background-image: url();}
+.editodo_fnb .fnb_list .btn_fnb .fnb_icon {display: block; margin: 0 auto; background-color:#ccc;}
+.editodo_fnb .fnb_list .btn_fnb .fnb_tit {display: block; margin-top: 4px; font-size: 12px; color: #AAAAAA; font-weight: 500; letter-spacing: -0.33px;}
+
+.editodo_fnb .fnb_list .btn_fnb.active .fnb_icon {background-color: #222; }
+.editodo_fnb .fnb_list .btn_fnb.active .fnb_tit {color: #222;} 
+.editodo_fnb .fnb_list .fnb_todolist {width: 20px; height: 16px; -webkit-mask-image: url("../images/fnb_todolist.svg"); mask-image: url("../images/fnb_todolist.svg");}
+.editodo_fnb .fnb_list .fnb_calendar {width: 16px; height: 18px; -webkit-mask-image: url("../images/fnb_calendar.svg"); mask-image: url("../images/fnb_calendar.svg");}
+.editodo_fnb .fnb_list .fnb_daily {width: 20px; height: 16px; -webkit-mask-image: url("../images/fnb_todolist.svg"); mask-image: url("../images/fnb_todolist.svg");}
+.editodo_fnb .fnb_list .fnb_mypage {width: 16px; height: 18px; -webkit-mask-image: url("../images/fnb_mypage.svg"); mask-image: url("../images/fnb_mypage.svg");}
 
 
 
@@ -66,4 +70,6 @@ html, body {position: relative; width: 100%; height: 100%; }
 .layer_drop .drop_header .drop_tit {display: block; font-size: 15px; text-align: center; font-weight: 500; color: #222;}
 .layer_drop .drop_list li {height: 50px; line-height: 50px;  }
 .layer_drop .drop_list .btn_drop {display: block; width: 100%; font-size: 14px; color: #444; text-align: center;}
-.layer_drop .drop_list .btn_del {color: #FF3030;}
+.layer_drop .drop_list .btn_drop > i {display: inline-block; margin-right: 4px;}
+.layer_drop .drop_list .icon_modify {width: 14px; height: 14px; background-color: #222; -webkit-mask-image: url("../images/modify.svg"); mask-image: url("../images/modify.svg");}
+.layer_drop .drop_list .icon_garbage {width: 14px; height: 14px; background-color: #ff3030; -webkit-mask-image: url("../images/garbage.svg"); mask-image: url("../images/garbage.svg"); color: #FF3030;}
