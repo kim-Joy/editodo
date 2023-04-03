@@ -6,7 +6,19 @@
 ============================================ */
 .editodo_onboarding {position: absolute; top: 50%; left: 50%; width: 100%; background-color: #fff; transform: translate(-50%, -50%); }
 .editodo_onboarding .onboarding {text-align: center; }
-.editodo_onboarding .onboarding .pic {}
+.editodo_onboarding .onboarding .pic {position: relative; display: inline-block; }
+.editodo_onboarding .onboarding .pic:after {content:''; display: block; position: absolute; top: 15px; right: 0; width: 58px; height: 52px; background: url('../images/common/et_check.svg') no-repeat left center; background-size: contain; animation: fadeInUp ease-out .5s;}
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: scale(0,0);
+        
+    }
+    to {
+        opacity: 1;
+        transform: rotate(1,1);
+    }
+}
 .editodo_onboarding .onboarding .tit {display: block; margin: 40px auto 10px; font-size: 22px; color: #222; font-weight: 600;}
 .editodo_onboarding .onboarding .txt {font-size: 14px; color: #666; font-weight: 400;}
 .editodo_onboarding .onboarding .txt > strong {font-weight: 600; }
@@ -88,7 +100,7 @@
 .editodo_todolist .todolist_table {height: 403px; margin-top: 10px;padding: 20px 20px; box-sizing: border-box; box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1); background-color: #f5f5f5; overflow-x: hidden; overflow-y: auto; }
 .todolist_tbody li {position: relative; }
 .todolist_tbody li + li {margin-top: 16px; }
-.todolist_tbody .item_more {position: absolute; top: 0; right: 0; width: 18px; height: 18px; background-color: #aaa; background-repeat: no-repeat; background-position: right center; background-size: 8px 8px; }
+.todolist_tbody .item_more {position: absolute; top: 0; right: 0; width: 18px; height: 18px; background-color: #aaa; -webkit-mask-image: url("../images/common/dot.svg"); mask-image: url("../images/common/dot.svg"); -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; -webkit-mask-position: center center; mask-position: center center; -webkit-mask-size: 2px 10px; mask-size: 2px 10px;}
 
 
 /* checkbox 

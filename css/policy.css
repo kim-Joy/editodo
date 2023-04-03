@@ -58,6 +58,6 @@
 .policy h3 {color: #666; font-size: 14px; font-weight: 400;}
 .policy h3 + p {margin-top: 20px; }
 .policy p + p {margin-top: 20px; }
-.policy .policy-count.chapter p {margin-top: 0; }
+.policy .policy-count.chapter > p {margin-top: 0; }
 .policy .policy-count li {margin-top: 40px; color: #666; }
-.policy .policy-count p {margin-top: 20px; } 
+.policy .policy-count.depth > li p {margin-top: 20px; } 

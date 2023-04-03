@@ -1,5 +1,4 @@
 $(function(){
-
   //옵션 선택
   $('.layout_option').slick({
     slide: 'li',
@@ -7,7 +6,7 @@ $(function(){
     variableWidth: true,
     infinite: false,
     focusOnSelect: true,
-    swipeToSlide: true,
+    swipeToSlide: true
   });
 
   //하루일기 이모지 
