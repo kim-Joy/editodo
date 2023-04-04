@@ -57,6 +57,7 @@
 .palette_mincho .checkbox02 input[type="checkbox"]:checked + .on {border-color: var(--light-brown-accent); background-color: var(--light-brown-accent); }
 .palette_mincho .checkbox02 label {color: #1D5A58; }
 .palette_mincho .checkbox02:has(:checked) label {color: #679A98;}
+.palette_mincho .todolist_table .btn_new_todo {background-color: var(--light-brown-accent);}
 
 /* 체리레몬 */
 .palette_cherrylemon .todolist_table {background-color: var(--light-lemon-base); }
@@ -65,6 +66,7 @@
 .palette_cherrylemon .checkbox02 input[type="checkbox"]:checked + .on {border-color: var(--light-cherry-accent); background-color: var(--light-cherry-accent); }
 .palette_cherrylemon .checkbox02 label {color: #473C15; }
 .palette_cherrylemon .checkbox02:has(:checked) label {color: #958D71;}
+.palette_cherrylemon .todolist_table .btn_new_todo {background-color: var(--light-cherry-accent);}
 
 /* 그린 */
 .palette_green .todolist_table {background-color: var(--light-green-base); }
@@ -73,6 +75,8 @@
 .palette_green .checkbox02 input[type="checkbox"]:checked + .on {border-color: var(--light-green-accent); background-color: var(--light-green-accent); }
 .palette_green .checkbox02 label {color: #18320C; }
 .palette_green .checkbox02:has(:checked) label {color: #829C76;}
+.palette_green .todolist_table .btn_new_todo {background-color: var(--light-green-accent);}
+
 
 /* 핑키 */
 .palette_pinky .todolist_table {background-color: var(--light-pinky-base); }
@@ -81,6 +85,7 @@
 .palette_pinky .checkbox02 input[type="checkbox"]:checked + .on {border-color: var(--light-pinky-accent); background-color: var(--light-pinky-accent); }
 .palette_pinky .checkbox02 label {color: #411023; }
 .palette_pinky .checkbox02:has(:checked) label {color: #AB7B8E;}
+.palette_pinky .todolist_table .btn_new_todo {background-color: var(--light-pinky-accent);}
 
 
 
@@ -107,6 +112,7 @@
 .darkmode.palette_mincho .checkbox02 input[type="checkbox"]:checked + .on {border-color: var(--dark-mimt-accent); background-color: var(--dark-mimt-accent); }
 .darkmode.palette_mincho .checkbox02 label {color: #DFF1F0; }
 .darkmode.palette_mincho .checkbox02:has(:checked) label {color: #78ABA9;}
+.darkmode.palette_mincho .todolist_table .btn_new_todo {background-color: var(--dark-mimt-accent); color: #333;  }
 
 /* 옐로우 */
 .darkmode.palette_yellow .todolist_table {background-color: var(--dark-yellow-base); }
@@ -115,6 +121,7 @@
 .darkmode.palette_yellow .checkbox02 input[type="checkbox"]:checked + .on {border-color: var(--dark-yellow-accent); background-color: var(--dark-yellow-accent); }
 .darkmode.palette_yellow .checkbox02 label {color: #F2EEE0; }
 .darkmode.palette_yellow .checkbox02:has(:checked) label {color: #958D71;}
+.darkmode.palette_yellow .todolist_table .btn_new_todo {background-color: var(--dark-yellow-accent); color: #333;  }
 
 /* 그린 */
 .darkmode.palette_green .todolist_table {background-color: var(--dark-green-base); }
@@ -123,6 +130,7 @@
 .darkmode.palette_green .checkbox02 input[type="checkbox"]:checked + .on {border-color: var(--dark-green-accent); background-color: var(--dark-green-accent); }
 .darkmode.palette_green .checkbox02 label {color: #EDFAE7; }
 .darkmode.palette_green .checkbox02:has(:checked) label {color: #829C76;}
+.darkmode.palette_green .todolist_table .btn_new_todo {background-color: var(--dark-green-accent); color: #333;  }
 
 /* 핑키 */
 .darkmode.palette_pinky .todolist_table {background-color: var(--dark-pinky-base); }
@@ -131,6 +139,7 @@
 .darkmode.palette_pinky .checkbox02 input[type="checkbox"]:checked + .on {border-color: var(--dark-pinky-accent); background-color: var(--dark-pinky-accent); }
 .darkmode.palette_pinky .checkbox02 label {color: #F3DBE4; }
 .darkmode.palette_pinky .checkbox02:has(:checked) label {color: #AB7B8E;}
+.darkmode.palette_pinky .todolist_table .btn_new_todo {background-color: var(--dark-pinky-accent); color: #333;  }
 
 
 
