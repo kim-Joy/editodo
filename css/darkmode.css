@@ -61,3 +61,10 @@
 .darkmode .editodo_fnb .fnb_list .btn_fnb .fnb_tit {color: #444; }
 .darkmode .editodo_fnb .fnb_list .btn_fnb.active .fnb_icon {background-color: #BBBBBB; }
 .darkmode .editodo_fnb .fnb_list .btn_fnb.active .fnb_tit {color: #BBBBBB; }
+
+
+
+/* 시스템 모드 dark 인 경우 */
+@media (prefers-color-scheme: dark) {
+    
+}

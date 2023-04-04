@@ -210,5 +210,22 @@
   
   });
 
+  $(function(){
+  //addEventListener 안먹혀서 jquery 사용. 
+
+  //더보기 
+  $('.item_more').on('click', function(){
+    console.log('ddsss');
+    $('.layer').css('display', 'block');
+  });
+
+  $('.dim').on('click', function(){
+    console.log('dd');
+    $('.layer').css('display', 'none');
+  });
+
+
+}); //End
+
   w3.includeHTML();
   </script>
