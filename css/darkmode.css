@@ -11,13 +11,30 @@
 .darkmode .btn_dark {border-color: var(--dark-accent-default); background-color: var(--dark-accent-default); color: #333 !important;  } 
 
 .darkmode .header .hd_util .hd_back.arrow01 {background-color: #999999; }
+.darkmode .header .hd_util .hd_back {background-color: #999999;}
+
+
+
+
+
+
+/* ============================================
+    todolist  
+============================================ */
+.darkmode .editodo_daily .tit {color: #fff; }
+.darkmode .editodo_daily .record_area {color: #fff; }
+.darkmode .editodo_daily .record_sammary .txt {color: #DADADA; }
+
+
+
 
 
 /* ============================================
     todolist  
 ============================================ */
 
-
+.darkmode .date_header .date_now {color: #DADADA;}
+.darkmode .date_header .btn_arrow {background-color: #999999; }
 
 
 
