@@ -1,0 +1,46 @@
+@charset "utf-8";
+
+/* ============================================
+    시스템 모드 + 다크모드 인 경우  
+============================================ */
+#wrap.darkmode .header {background-color: var(--darkmode-body-color); }
+
+
+/* common */
+.darkmode .container {background-color: var(--darkmode-body-color); }
+.darkmode .btn_dark {border-color: var(--dark-accent-default); background-color: var(--dark-accent-default); color: #333 !important;  } 
+
+.darkmode .header .hd_util .hd_back.arrow01 {background-color: #999999; }
+
+
+/* ============================================
+    todolist  
+============================================ */
+
+
+
+
+
+
+/* ============================================
+    mypage  
+============================================ */
+.darkmode .editodo_mypage .mypage_info {border-color: #444444; background-color: #333333;}
+.darkmode .editodo_mypage .mypage_info .btn_info {color: #DADADA; }
+.darkmode .editodo_mypage .mypage_info .mypage_arrow {background-color: #DADADA; }
+.darkmode .editodo_mypage .category {border-color: #444444; }
+.darkmode .editodo_mypage .category li {background-color: #333333; color: #DADADA;}
+.darkmode .editodo_mypage .category .btn_category {color: #DADADA; }
+
+
+
+
+
+/* ============================================
+    fnb  
+============================================ */
+.darkmode .editodo_fnb {border-color: #333333; background-color: var(--darkmode-body-color);}
+.darkmode .editodo_fnb .fnb_list .btn_fnb .fnb_icon {background-color: #444444;}
+.darkmode .editodo_fnb .fnb_list .btn_fnb .fnb_tit {color: #444; }
+.darkmode .editodo_fnb .fnb_list .btn_fnb.active .fnb_icon {background-color: #BBBBBB; }
+.darkmode .editodo_fnb .fnb_list .btn_fnb.active .fnb_tit {color: #BBBBBB; }

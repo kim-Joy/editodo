@@ -21,10 +21,11 @@
     <div class="container editodo_todolist">
       <!-- S: edito_inner -->
       <div class="editodo_inner side_pd">
-        <div class="todolist_header">
-          <button type="button" class="btn_arrow datapicker_prev"><span class="">이전</span></button>
-          <p class="datapicker_year">03.22(토)</p>
-          <button type="button" class="btn_arrow datapicker_prev"><span class="">다음</span></button>
+        <div class="date_header">
+          <button type="button" class="btn_arrow prev"><span class="visuallyhidden">이전</span></button>
+          <!-- <p class="date_now">03.22(토)</p> -->
+          <p class="date_now"><span class="year"></span>.<span class="month"></span>(<span class="week"></span>)</p>
+          <button type="button" class="btn_arrow next"><span class="visuallyhidden">다음</span></button>
         </div>
         <div class="todolist_table" w3-include-html="../include/todolist_skin.html"></div> 
 
@@ -48,20 +49,19 @@
 </html>
 <script>
 $(function(){
-  const editodoWrap = document.querySelector('.editodo_wrap');
-  const theme = sessionStorage.getItem('theme');
-  const color = sessionStorage.getItem('color');
-
-  editodoWrap.classList.add(theme, color);
+  //addEventListener 안먹혀서 jquery 사용. 
 
   //더보기 
   $('.item_more').on('click', function(){
+    console.log('ddsss');
     $('.layer').css('display', 'block');
   });
 
   $('.dim').on('click', function(){
+    console.log('dd');
     $('.layer').css('display', 'none');
   });
+
 
 }); //End
 
@@ -69,3 +69,77 @@ $(function(){
 w3.includeHTML();
 
 </script>
+<script>
+  const init = {
+    monList: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'],
+    dayList: ['일', '월', '화', '수', '목', '금', '토'],
+    today: new Date(),
+    monForChange: new Date().getMonth(),
+    activeDate: new Date(),
+    getFirstDay: (yy, mm) => new Date(yy, mm, 1),
+    getLastDay: (yy, mm) => new Date(yy, mm + 1, 0),
+    nextMonth: function () {
+      let d = new Date();
+      d.setDate(1);
+      d.setMonth(++this.monForChange);
+      this.activeDate = d;
+      return d;
+    },
+    prevMonth: function () {
+      let d = new Date();
+      d.setDate(1);
+      d.setMonth(--this.monForChange);
+      this.activeDate = d;
+      return d;
+    },
+    addZero: (num) => (num < 10) ? '0' + num : num,
+    activeDTag: null,
+    getIndex: function (node) {
+      let index = 0;
+      while (node = node.previousElementSibling) {
+        index++;
+      }
+      return index;
+    }
+  };
+  
+  const $calBody = document.querySelector('.todolist_table');
+  const $btnNext = document.querySelector('.btn_arrow.next');
+  const $btnPrev = document.querySelector('.btn_arrow.prev');
+  const dailydiary = document.querySelector('.daily-diary');
+  
+  /**
+   * @param {number} date
+   * @param {number} dayIn
+  */
+
+  /**
+   * @param {date} fullDate
+   */
+  function loadYYMM (fullDate) {
+    let yy = fullDate.getFullYear();
+    let mm = fullDate.getMonth();
+    let firstDay = init.getFirstDay(yy, mm);
+    let lastDay = init.getLastDay(yy, mm);
+    let markToday;  // for marking today date
+    let week = ['일', '월', '화', '수', '목', '금', '토']; 
+    let markWeek = week[new Date().getDay()];
+    
+    if (mm === init.today.getMonth() && yy === init.today.getFullYear()) {
+      markToday = init.today.getDate();
+    }
+
+
+    document.querySelector('.date_now .month').textContent = init.monList[mm];
+    document.querySelector('.date_now .year').textContent = yy;
+    document.querySelector('.date_now .week').textContent = week[markWeek];
+
+  }
+
+  loadYYMM(init.today);
+  
+  $btnNext.addEventListener('click', () => loadYYMM(init.nextMonth()));
+  $btnPrev.addEventListener('click', () => loadYYMM(init.prevMonth()));
+  
+
+  </script>

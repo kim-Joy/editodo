@@ -21,38 +21,18 @@
   <div id="wrap" class="editodo_wrap">
 
     <div class="container editodo_calendar">
-      <div class="editodo_inner side_pd" style="display: none;"> <!-- jquery ui -->
-        <div id="datapicker" class="editodo_datapicker"></div>
-        <!-- S: 등록된 리스트 -->
-        <div id="daily_diary" class="daily_diary">
-          <div class="todo_box">
-            <ul id="todo-list"></ul>
-          </div>
-          
-          <div class="bottom_btn_group">
-            <button type="buttton" class="btn btn_dark full">하루기록</button>
-          </div>
-        </div>
-        <!-- E: 등록된 리스트 -->
-      </div>
 
       <div class="editodo_inner side_pd">
-        <div class="my-calendar clearfix">
-          <div class="clicked-date" style="display: none; ">
-            <div class="cal-day"></div>
-            <div class="cal-date"></div>
+        <div class="calendar-box">
+          <div class="date_header">
+            <button type="button" class="btn_arrow prev"><span class="visuallyhidden">이전</span></button>
+            <p class="date_now"><span class="year"></span>.<span class="month"></span></p>
+            <button type="button" class="btn_arrow next"><span class="visuallyhidden">다음</span></button>
           </div>
-          <div class="calendar-box">
-            <div class="ctr-box clearfix">
-              <button type="button" title="prev" class="btn-cal prev">
-              </button>
-              
-              <span class="cal-year"></span>.<span class="cal-month"></span>
-              <button type="button" title="next" class="btn-cal next">
-              </button>
-            </div>
-            <table class="cal-table">
-              <thead>
+
+          <div class="calendar_table">
+            <table>
+              <thead class="calendar_head">
                 <tr>
                   <th>일</th>
                   <th>월</th>
@@ -63,15 +43,16 @@
                   <th>토</th>
                 </tr>
               </thead>
-              <tbody class="cal-body"></tbody>
+              <tbody class="calendar_body"></tbody>
             </table>
           </div>
         </div>
         <!-- S: 등록된 리스트 -->
         <div id="daily_diary" class="daily_diary">
           <div class="todo_box">
-            <ul id="todo-list"></ul>
+            <div class="todolist_table" w3-include-html="../include/todolist_skin.html"></div>
           </div>
+
           
           <div class="bottom_btn_group">
             <button type="buttton" class="btn btn_dark full">하루기록</button>
@@ -88,91 +69,7 @@
 </body>
 </html>
 
-
 <script>
-  $(function () {
-    const calendar = document.querySelector('.editodo_calendar');
-    const state = calendar.querySelectorAll('.tbody tr');
-    const icon = document.createElement('span');
-
-
-   const natDays = [
-      [2023, 1, 1, "ko", "신정"],
-      [2023, 1, 21, "ko", ""],
-      [2023, 1, 22, "ko", "설"],
-      [2023, 1, 23, "ko", ""],
-      [2023, 1, 24, "ko", "대체공휴일"],
-      [2023, 3, 1, "ko", "삼일절"],
-      [2023, 5, 5, "ko", "어린이날"],
-      [2023, 5, 27, "ko", "석가탄신일"],
-      [2023, 6, 6, "ko", "현충일"],
-      [2023, 8, 15, "ko", "광복절"],
-      [2023, 9, 28, "ko", ""],
-      [2023, 9, 29, "ko", "추석"],
-      [2023, 9, 30, "ko", ""],
-      [2023, 10, 3, "ko", "개천절"],
-      [2023, 10, 9, "ko", "한글날"],
-      [2023, 12, 25, "ko", "성탄절"]
-    ];
-
-    $("#datapicker").datepicker({
-      showMonthAfterYear: true, //월, 년순의 셀렉트 박스를 년,월 순으로 바꿔준다. 
-      //showOtherMonths: true, //해당 달의 시작 또는 끝에 다른 달의 날짜를 표시할 것인지
-      dateFormat: "yy-mm-dd", // 텍스트 필드에 입력되는 날짜 형식.
-      yearSuffix: ".",
-      monthNames: ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"],
-      dayNamesMin: ['일','월', '화', '수', '목', '금', '토' ], // 요일의 한글 형식.
-      //beforeShowDay: nationalDays, 
-
-      
-      onSelect: function(e){
-        $('.daily_diary').addClass('active');
-        let arr = e.split("-");
-        let year = arr[0];
-        let month = arr[1];
-        let day = arr[2];
-        let format = new Date(
-          $("#datapicker").datepicker({
-            format: "yy-mm-dd"
-          }).val()
-        );
-
-        //console.log(year + '/' + month + '/' + day);
-
-      }
-
-    });
-
-    
-     //holiday
-     function nationalDays(date) {
-      for (i = 0; i < natDays.length; i++) {
-        if (
-          date.getFullYear() == natDays[i][0] &&
-          date.getMonth() == natDays[i][1] - 1 &&
-          date.getDate() == natDays[i][2]
-        ) {
-          return [true, natDays[i][3] + "_holiday", natDays[i][4]];
-        }
-      }
-      return [true, ""];
-    }
-
-  });
-
-
-
-
-
-  function moreTodo(event) {
-    console.log('dd');
-    $('.drop_layer').addClass('on');
-  }
-</script>
-<script>
-  // ================================
-  // START YOUR APP HERE
-  // ================================
   const init = {
     monList: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'],
     dayList: ['일', '월', '화', '수', '목', '금', '토'],
@@ -206,19 +103,16 @@
     }
   };
   
-  const $calBody = document.querySelector('.cal-body');
-  const $btnNext = document.querySelector('.btn-cal.next');
-  const $btnPrev = document.querySelector('.btn-cal.prev');
+  const $calBody = document.querySelector('.calendar_body');
+  const $btnNext = document.querySelector('.btn_arrow.next');
+  const $btnPrev = document.querySelector('.btn_arrow.prev');
+  const dailydiary = document.querySelector('.daily-diary');
   
   /**
    * @param {number} date
    * @param {number} dayIn
   */
-  function loadDate (date, dayIn) {
-    document.querySelector('.cal-date').textContent = date;
-    document.querySelector('.cal-day').textContent = init.dayList[dayIn];
-  }
-  
+
   /**
    * @param {date} fullDate
    */
@@ -233,8 +127,8 @@
       markToday = init.today.getDate();
     }
   
-    document.querySelector('.cal-month').textContent = init.monList[mm];
-    document.querySelector('.cal-year').textContent = yy;
+    document.querySelector('.date_now .month').textContent = init.monList[mm];
+    document.querySelector('.date_now .year').textContent = yy;
   
     let trtd = '';
     let startCount;
@@ -252,7 +146,12 @@
           trtd += '<td class="day';
           trtd += (markToday && markToday === countDay + 1) ? ' today" ' : '"';
           trtd += ` data-date="${countDay + 1}" data-fdate="${fullDate}">`;
-          trtd += '<span class="todo_face"></span>'
+          trtd += `<span class="daily_face" style='background-image:url(../images/emoji/emoji_face${i}.svg)'></span>`;  
+          /* 
+          class= "daily_face"   -> 하루일기 등록 하지 않은 경우 default 
+          class= "daily_face not"   -> 
+          class= "daily_face not" style='background-image:url(../images/emoji/emoji_face${i}.svg)'   ->  ${i} 하루일기 이모지 등록 한 경우 번호 출력
+          */
         }
         trtd += (startCount) ? ++countDay : '';
         if (countDay === lastDay.getDate()) { 
@@ -290,7 +189,6 @@
   }
   
   loadYYMM(init.today);
-  loadDate(init.today.getDate(), init.today.getDay());
   
   $btnNext.addEventListener('click', () => loadYYMM(init.nextMonth()));
   $btnPrev.addEventListener('click', () => loadYYMM(init.prevMonth()));
@@ -301,15 +199,16 @@
         init.activeDTag.classList.remove('day-active');
       }
       let day = Number(e.target.textContent);
-      loadDate(day, e.target.cellIndex);
       e.target.classList.add('day-active');
+      
       init.activeDTag = e.target;
       init.activeDate.setDate(day);
+      e.target.closest('.calendar-box').nextElementSibling.classList.add('active');
       reloadTodo();
     }
+    
   
   });
-  </script>
-<script>
+
   w3.includeHTML();
-</script>
+  </script>

@@ -19,7 +19,7 @@
   <div id="wrap" class="editodo_wrap">
     <header class="header side_pd">
       <div class="hd_util">
-        <button type="button" class="hd_back arrow01"><span class="visuallyhidden">뒤로가기</span></button>
+        <button type="button" onclick="window.history.go(-1)" class="hd_back arrow02"><span class="visuallyhidden">뒤로가기</span></button>
       </div>
       <h3 class="hd_tit" style="text-indent: -9999px;">하루일기</h3>
     </header>
@@ -65,7 +65,6 @@ textarea 입니다
 <script>
 const emojiList = document.querySelector('.sticker_emoji')
 
-
 for(let i = 1; i <= 10; i++){ //이모지 저장된 갯수만큼 li 노출
   const li = document.createElement('li');
   emojiList.append(li);
@@ -73,6 +72,6 @@ for(let i = 1; i <= 10; i++){ //이모지 저장된 갯수만큼 li 노출
   li.style= `background-image:url(../images/emoji/emoji_face${i}.svg)` 
 }
 
-  w3.includeHTML();
+w3.includeHTML();
   
-  </script>
+</script>

@@ -1,139 +1,38 @@
 @charset "utf-8";
+
+/* ============================================
+    투두리스트 
+============================================ */
+.date_header {display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; height: 50px; line-height: 50px; }
+.date_header .date_now {font-size: 15px; color: #222; font-weight: 600; }
+.date_header .btn_arrow {display: block; width: 30px; height: 30px; background-color: #666666; -webkit-mask-image: url("../images/common/calendar_direction.svg"); mask-image: url("../images/common/calendar_direction.svg"); -webkit-mask-position: right center; mask-position: right center;  -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; -webkit-mask-size: 8px 8px; mask-size: 8px 8px;}
+.date_header .btn_arrow.prev {mask-position: left center; transform: rotate(180deg); }
+
+
+.editodo_todolist .todolist_table {height: 403px; margin-top: 10px;padding: 20px 20px; box-sizing: border-box; box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1); background-color: #f5f5f5; overflow-x: hidden; overflow-y: auto; }
+
+.todolist_tbody li {position: relative; }
+.todolist_tbody li + li {margin-top: 16px; }
+.todolist_tbody .item_more {position: absolute; top: 0; right: 0; width: 18px; height: 18px; background-color: #aaa; -webkit-mask-image: url("../images/common/dot.svg"); mask-image: url("../images/common/dot.svg"); -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; -webkit-mask-position: center center; mask-position: center center; -webkit-mask-size: 2px 10px; mask-size: 2px 10px;}
+
+.todolist_table .btn_new_todo {height: 28px; padding: 0 15px; box-sizing: border-box; border-radius: 18px; background-color: #222; font-size: 13px; color: #fff; font-weight: 500; text-align: center; }  
+.todolist_table > .todolist_tbody + .bottom_btn_group {margin-top: 30px; text-align: center; }
+
+
+
 /* ============================================
     calendar 
 ============================================ */
-/* header */
-.editodo_datapicker .ui-datepicker .ui-widget-header {height: 50px; margin-bottom: 10px; padding: 0; background-color: transparent; border: none; border-radius: 0;}
-.editodo_datapicker .ui-datepicker .ui-datepicker-prev {width: 30px; height: 30px; left: 0; top: 10px; }
-.editodo_datapicker .ui-datepicker .ui-datepicker-next {width: 30px; height: 30px; right: 0; top: 10px;}
-.editodo_datapicker .ui-datepicker .ui-datepicker-title {margin: 0 auto; padding: 0; color: #222; font-size: 15px; font-weight: 600; line-height: 50px;}
+.calendar_table .calendar_head th {width: 50px; height: 50px; font-size: 14px; color: #aaa; font-weight: 600; }
+.calendar_table .calendar_body td {position: relative; width: 50px; height: 50px; padding: 5px 0; box-sizing: border-box; color: #222; font-size: 13px; font-weight: 600; text-align: center;  vertical-align: top;}
 
-/* content */
-.editodo_datapicker .ui-widget.ui-widget-content {width: 100%; height: 100%; margin: 0 auto; padding: 0; border: none; border-radius: 0;}
-.editodo_datapicker .ui-datepicker th {width: 50px; height: 50px; padding: 0; box-sizing: border-box; color: #aaa; font-size: 14px; }
-.editodo_datapicker .ui-datepicker td {padding: 0;}
-.editodo_datapicker .ui-state-default, 
-.editodo_datapicker .ui-widget-content .ui-state-default, 
-.editodo_datapicker .ui-widget-header .ui-state-default {width: 50px; height: 50px; margin: 0 auto; padding: 5px 0; box-sizing: border-box; border: none;  background-color: transparent; text-align: center; color: #222; font-weight: 600; }
-
-.editodo_datapicker .ui-state-default:after {content: 'x'; display: block; width: 20px; height: 20px; margin: 2px auto 0; box-sizing: border-box; border-radius: 100%; border: 1px dashed #eee; background-color: transparent; color: #eee; }
-
-/* Active
-.editodo_datapicker .ui-state-active,
-.editodo_datapicker .ui-widget-content .ui-state-active,
-.editodo_datapicker .ui-widget-header .ui-state-active,
-.editodo_datapicker a.ui-button:active,
-.editodo_datapicker .ui-button:active,
-.editodo_datapicker .ui-button.ui-state-active:hover {background-color: #381e1f; color: #fff !important; font-weight: 700; } */
-
-/* holiday */
-.editodo_datapicker td.ko_holiday a.ui-state-default {color: #FF3030; }
-
-/* Hover
-.editodo_datapicker td .ui-state-default:hover,
-.editodo_datapicker td.ui-datepicker-week-end a:hover {background-color: #ffd800; }  */
+.calendar_table .calendar_body .daily_face {position: absolute; bottom: 5px; left: 50%; width: 20px; height: 20px; box-sizing: border-box; border-radius: 100%; background-color: #eee; background-repeat: no-repeat; background-size: contain; transform: translateX(-50%); }
+.calendar_table .calendar_body .daily_face.not {border: 1px dashed #aaa; background-color: transparent;}
+.calendar_table .calendar_body .daily_face.not:after {content: ''; position: absolute; top: 50%; left: 50%; width: 8px; height: 8px; background-color: #aaa; -webkit-mask-image: url("../images/common/x_small.svg"); mask-image: url("../images/common/x_small.svg"); -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; -webkit-mask-position: center center; mask-position: center center; -webkit-mask-size: 8px 8px; mask-size: 8px 8px; transform: translate(-50%, -50%);}
 
 
-
-.clearfix:after {
-  content: '';
-  display: block;
-  clear: both;
-  float: none;
-}
-
-/* ======== Calendar ======== */
-.my-calendar {
-  text-align: center;
-  font-weight: 800;
-  cursor: default;
-}
-
-
-.ctr-box {
-  padding: 0 16px;
-  margin-bottom: 20px;
-  font-size: 20px;
-}
-.ctr-box .btn-cal {
-  position: relative;
-  float: left;
-  width: 25px;
-  height: 25px;
-  margin-top: 5px;
-  font-size: 16px;
-  cursor: pointer;
-  border: none;
-  background: none;
-}
-.ctr-box .btn-cal:after {
-  content: '<';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  line-height: 25px;
-  font-weight: bold;
-  font-size: 20px;
-}
-.ctr-box .btn-cal.next {
-  float: right;
-}
-.ctr-box .btn-cal.next:after {
-  content: '>';
-}
-
-.cal-table {
-  width: 100%;
-}
-.cal-table th {
-  width: 14.2857%;
-  padding-bottom: 5px;
-  font-size: 16px;
-  font-weight: 900;
-}
-.cal-table td {
-  padding: 3px 0;
-  height: 50px;
-  font-size: 15px;
-  vertical-align: middle;
-}
-.cal-table td.day {
-  position: relative;
-  cursor: pointer;
-  text-align: center; 
-}
-/* today
-.cal-table td.today {
-  background: #ffd255;
-  border-radius: 50%;
-  color: #fff;
-} */
-/* active
-.cal-table td.day-active {
-  background: #ff8585;
-  border-radius: 50%;
-  color: #fff;
-}  */
- 
-.cal-table td.has-event:after {
-  content: '';
-  display: block;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 4px;
-  background: #FFC107;
-} 
-
-.todo_face {position: absolute; bottom: 0; left: 50%;  margin: 0 auto; box-sizing: border-box; border-radius: 100%; border: 1px dashed #eee; width: 15px; height: 15px; background-color: transparent; transform: translateX(-50%); }
-
-
-
-
-
+/* 하루기록 */
 .editodo_calendar .daily_diary {display: none; }
 .editodo_calendar .daily_diary.active {display: block; }
 .editodo_calendar .daily_diary .todo_box {width: 100%; height: 120px; margin-top: 15px; box-sizing: border-box; box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1); background-color: #f5f5f5; overflow-x:hidden; overflow-y: auto;}
+.editodo_calendar .daily_diary .todo_box .todolist_table {padding: 10px; }

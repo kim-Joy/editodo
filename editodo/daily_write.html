@@ -17,10 +17,11 @@
 </head>
 <body>
   <div id="wrap" class="editodo_wrap">
-    <header class="header">
+    <header class="header side_pd">
       <div class="hd_util">
-        <button type="button" class="hd_back arrow"><span class="visuallyhidden">뒤로가기</span></button>
+        <button type="button" onclick="window.history.go(-1)" class="hd_back arrow02"><span class="visuallyhidden">뒤로가기</span></button>
       </div>
+      <h3 class="hd_tit" style="text-indent: -9999px;">하루일기</h3>
     </header>
 
     <div class="container editodo_daily">
@@ -31,10 +32,6 @@
         <div class="record_sammary">
           <p class="txt">오늘 하루 요약 스티커</p>
           <ul class="sticker_emoji">
-            <li></li>
-            <li></li>
-            <li class="on"></li>
-            <li></li>
           </ul>
         </div>
         <div class="bottom_btn_group">
@@ -50,7 +47,16 @@
 </body>
 </html>
 <script>
+const emojiList = document.querySelector('.sticker_emoji')
 
-  w3.includeHTML();
+$('.slick-current').addClass('on');
+for(let i = 1; i <= 10; i++){ //이모지 저장된 갯수만큼 li 노출
+  const li = document.createElement('li');
+  emojiList.append(li);
   
-  </script>
+  li.style= `background-image:url(../images/emoji/emoji_face${i}.svg)` 
+}
+
+w3.includeHTML();
+    
+</script>

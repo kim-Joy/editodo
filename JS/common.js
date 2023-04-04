@@ -1,4 +1,8 @@
 $(function(){
+  const editodoWrap = document.querySelector('.editodo_wrap');
+  const theme = sessionStorage.getItem('theme');
+  const color = sessionStorage.getItem('color');
+
   //옵션 선택
   $('.layout_option').slick({
     slide: 'li',
@@ -23,5 +27,9 @@ $(function(){
     $('.slick-slide').removeClass('on');
     $(this).find('.slick-current').addClass('on');
   });
+
+  //옵션 & 테마 적용 
+  editodoWrap.classList.add(theme, color);
+
 
 }); //End
