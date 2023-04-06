@@ -13,18 +13,19 @@
   <script type="text/javascript" src="../JS/slick.min.js"></script>
   <script type="text/javascript" src="../JS/common.js"></script>
   <script type="text/javascript" src="https://www.w3schools.com/lib/w3.js"></script>
-  <title>색상선택</title>
+  <title>테마선택</title>
 </head>
 <body>
   <div id="wrap" class="editodo_wrap">
+
     <div class="container editodo_step">
       <div class="editodo_inner side_pd">
-        <ul class="step_process on step2">
-          <li>
+        <ul class="step_process on">
+          <li class="on">
             <span class="step_count"></span>
             <span class="step_name">테마선택</span>
           </li>
-          <li class="on">
+          <li>
             <span class="step_count"></span>
             <span class="step_name">색상선택</span>
           </li>
@@ -35,48 +36,22 @@
         </ul>
 
         <section class="section_choose">
-          <h3 class="title"><span class="font_main">심플</span> 테마의 추천 색상!<br>좋아하는 색상으로 골라봐요:)</h3>
+          <h3 class="title">내 마음에 드는<br>테마를 골라볼까요?</h3>
           <p class="subtitle">
             나중에 마이페이지에서 수정할 수 있어요.<br>
-            [배경색/포인트색] 원하는 색상을 아래에서 골라봐요!
+            더 많은 테마는 E-T에서 열심히 준비 중이에요!
           </p>
 
-          <ul class="layout_option color">
-            <li>
-              <button type="button" class="btn_option default">
-                <span style="background-color: #f5f5f5;">#f5f5f5</span>
-                <span style="background-color: #222;">#222</span>
-              </button>
-            </li>
-            <li>
-              <button type="button" class="btn_option darkmode">
-                <span style="background-color: #12120A;">#12120A</span>
-                <span style="background-color: #D8D8D8;">#D8D8D8</span>
-              </button>
-            </li>
-            <li>
-              <button type="button" class="btn_option palette_mincho">
-                <span style="background-color: #D8F0EF;">#D8F0EF</span>
-                <span style="background-color: #997B6A;">#997B6A</span>
-              </button>
-            </li>
-            <li>
-              <button type="button" class="btn_option palette_cherrylemon">
-                <span style="background-color: #FFF3CA;">#FFF3CA</span>
-                <span style="background-color: #F3637D;">#F3637D</span>
-              </button>
-            </li>
-            <li>
-              <button type="button" class="btn_option palette_green">
-                <span style="background-color: #F3FEF0;">#F3FEF0</span>
-                <span style="background-color: #228262;">#228262</span>
-              </button>
-            </li>
+          <ul class="layout_option theme">
+            <li class="on"><button type="button" class="btn_option style_simple">심플</button></li>
+            <li><button type="button" class="btn_option style_round">라운드</button></li>
+            <li><button type="button" class="btn_option style_skitch">스케치</button></li>
+            <li><button type="button" class="btn_option style_kitsch">키치</button></li>
           </ul>
 
           <div class="layout_sample">
             <p class="caption">테마 미리보기</p>
-            <div class="sample_preview">
+            <div class="sample_preview"> 
               <div class="todolist_table" w3-include-html="../include/sample_skin.html"></div>
             </div>
           </div>
@@ -95,30 +70,30 @@
 
 <script>
 $(function(){
-  const preview = document.querySelector('.sample_preview');
-  const theme = sessionStorage.getItem('theme');
+  const editodoWrap = document.querySelector('.editodo_wrap');
 
-  preview.classList.add(theme);
+  $('.slick-current').addClass('on');
   // 옵션 - 슬라이드 이동 후 이벤트 시작
   $('.layout_option').on('afterChange', function(){
     const current = document.querySelector('.slick-current').children;
     let target = current[0].classList[1];
 
     $(this).find('.slick-current').addClass('on');
-    preview.classList.add(target); 
-    sessionStorage.setItem('color' ,target);
-
+    editodoWrap.classList.add(target); 
+    sessionStorage.setItem('theme' ,target);
   });
 
   //옵션  - 슬라이드 이동 전 이벤트 시작
   $('.layout_option').on('beforeChange', function(){
-  const current = document.querySelector('.slick-current').children;
-  let target = current[0].classList[1];
+    const current = document.querySelector('.slick-current').children;
+    let target = current[0].classList[1];
     $('.slick-slide').removeClass('on');
-    preview.classList.remove(target);
+    editodoWrap.classList.remove(target);
   });
 
-}); //End
 
-  w3.includeHTML();
+
+});
+
+w3.includeHTML();
 </script>

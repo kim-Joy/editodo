@@ -2,6 +2,7 @@ $(function(){
   const editodoWrap = document.querySelector('.editodo_wrap');
   const theme = sessionStorage.getItem('theme');
   const color = sessionStorage.getItem('color');
+  const mode = sessionStorage.getItem('mode');
 
   //옵션 선택
   $('.layout_option').slick({
@@ -29,7 +30,8 @@ $(function(){
   });
 
   //옵션 & 테마 적용 
-  editodoWrap.classList.add(theme, color);
+  editodoWrap.classList.add('palette_default'); // 디폴트 컬러 적용
+  editodoWrap.classList.add(mode, theme, color); // 선택된 옵션 적용
 
 
 }); //End
