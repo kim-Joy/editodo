@@ -31,7 +31,7 @@
         <div class="todolist_table" w3-include-html="../include/todolist_skin.html"></div> 
 
         <div class="bottom_btn_group">
-          <button type="buttton" class="btn btn_dark full">+ New toodo</button>
+          <button type="buttton" class="btn btn_dark full btn_newtodo">+ New toodo</button>
         </div>
       </div>
       <!-- E: editodo_inner -->
@@ -43,6 +43,7 @@
 
   <div w3-include-html="../include/layer_drop.html"></div>
 </body>
+
 </html>
 <script>
 $(function(){
@@ -66,6 +67,7 @@ $(function(){
 w3.includeHTML();
 
 </script>
+
 <script>
   const init = {
     monList: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'],
@@ -138,5 +140,6 @@ w3.includeHTML();
   $btnNext.addEventListener('click', () => loadYYMM(init.nextMonth()));
   $btnPrev.addEventListener('click', () => loadYYMM(init.prevMonth()));
   
+
 
   </script>

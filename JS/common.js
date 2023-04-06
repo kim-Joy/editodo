@@ -5,7 +5,7 @@ $(function(){
   const mode = sessionStorage.getItem('mode');
 
   //옵션 선택
-  $('.layout_option').slick({
+  $('.slick_list').slick({
     slide: 'li',
     arrows: false,
     variableWidth: true,

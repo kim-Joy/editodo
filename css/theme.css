@@ -4,7 +4,7 @@
 /* ============================================
     onboarding 
 ============================================ */
-.editodo_onboarding {position: absolute; top: 50%; left: 50%; width: 100%; padding: 0 18px; box-sizing: border-box; transform: translate(-50%, -50%); }
+.editodo_onboarding {position: absolute; top: 50%; left: 50%; max-width: 720px; width: 100%; padding: 0 18px; box-sizing: border-box; transform: translate(-50%, -50%); }
 .editodo_onboarding .onboarding {text-align: center; }
 .editodo_onboarding .onboarding .pic {position: relative; display: inline-block; }
 .editodo_onboarding .onboarding .pic:after {content:''; display: block; position: absolute; top: 15px; right: 0; width: 58px; height: 52px; background: url('../images/common/et_check.svg') no-repeat left center; background-size: contain; animation: fadeInUp ease-out .5s;}
@@ -93,7 +93,7 @@
 /* checkbox 
 ============================================= */
 .checkbox02 {position: relative; display: block; padding-left: 26px; cursor: pointer;  -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
-.checkbox02 label {display: inline-block; width: calc(100% - 18px); font-size: 13px; font-weight: 500; line-height: 19px; vertical-align: middle;}
+.checkbox02 label {display: inline-block; width: calc(100% - 18px); font-size: 13px; font-weight: 500;}
 .checkbox02 input[type="checkbox"] {display: none; } 
 
 /* 선택되지 않은 체크박스 스타일 꾸미기 */

@@ -3,7 +3,7 @@
 /* =========================================
     login
 =========================================== */
-.editodo_login {padding-top: 40px; }
+.editodo_login .form_wrap {margin-top: 0; padding-top: 40px; }
 .editodo_login .form_dl:first-child .form_input {border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
 .editodo_login .form_dl:last-of-type .form_input {border-top-left-radius: 0; border-top-right-radius: 0; }
 .editodo_login .form_dl + .form_dl {margin-top: -1px; }
@@ -17,9 +17,7 @@
 
 /* =========================================
     join
-=========================================== */
-.editodo_join {}
-.editodo_join .form_dl + .save_id {margin-top: 40px; }
+=========================================== */.editodo_join .form_dl + .save_id {margin-top: 40px; }
 .editodo_join .underline {text-decoration: underline;}
 
 
